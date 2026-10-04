@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=0.5" />
+        <title>TX在線モニタ</title>
+        <script type="text/javascript">
+            /* 在線描画設定部分 */
+            const linedata =
+            {"tx":{line_name: "つくばエクスプレス",sections:[
+                    {
+						station_name: "秋葉原",
+						tracks: "M-6,-1H6M-6,1H6M3,-1L2,1M3,1L2,-1",
+						plats: [0],
+                        position: [50, 51],
+                        station_id: 11
+					},
+					{
+                        tracks: "M-6,-1H6M-6,1H6",
+                        position: [1112, 1211]
+					},
+                    {
+						station_name: "新御徒町",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+                        position: [56, 57],
+                        station_id: 12
+					},
+					{
+                        tracks: "M-6,-1H6M-6,1H6",
+                        position: [1213, 1312],
+					},
+                    {
+						station_name: "浅草",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+                        position: [60, 61],
+                        station_id: 13
+					},
+					{
+                        tracks: "M-6,-1H6M-6,1H6",
+                        position: [1314, 1413],
+					},
+                    {
+						station_name: "南千住",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+                        position: [64, 65],
+                        station_id: 14
+					},
+					{
+                        tracks: "M-6,-1H6M-6,1H6",
+                        position: [1415, 1514],
+					},
+                    {
+						station_name: "北千住",
+						tracks: "M-6,-1H6M-6,1H6M3,-1L2,1M3,1L2,-1",
+						plats: [0],
+                        position: [68, 69],
+                        station_id: 15
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6",
+                        position: [1516, 1615],
+					},
+                    {
+						station_name: "青井",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+                        position: [74, 75],
+                        station_id: 16
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6",
+                        position: [1617, 1716],
+					},
+                    {
+						station_name: "六町",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+                        position: [78, 79],
+                        station_id: 17
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6",
+                        position: [1718, 1817],
+					},
+                    {
+						station_name: "八潮",
+						tracks: "m -1.8075022,0.98074678 h 5.926034 M -6,-1 h 1 l 1,-2 h 8 l 1,2 h 1 m -2.2467181,-0.010867 -1,1.99999998 m 1,1e-8 -1,-1.99999999 M -3,-3 -2,-1 H 2 L 3,-3 M -3,3 -2,1 H 2 L 3,3 M -6,1 h 1 l 1,2 H 4 L 5,1 h 1 m -7.8075022,-2 h 5.926034",
+						plats: [-1, 1],
+                        position: [82, 83, 84, 85],
+                        station_id: 18,
+                        platform: -32
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6",
+                        position: [1819, 1918],
+					},
+                    {
+						station_name: "三郷中央",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+                        position: [94, 95],
+                        station_id: 19
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6",
+                        position: [1920, 2019],
+					},
+                    {
+						station_name: "南流山 ",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+                        position: [98, 99],
+                        station_id: 20
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6",
+                        position: [2021, 2120],
+					},
+                    {
+						station_name: "流山セントラルパーク",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+                        position: [102, 103],
+                        station_id: 21
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6", 
+                        position: [2122, 2221],
+					},
+                    {
+						station_name: "流山おおたかの森",
+						tracks: "m -3.9827054,1 -1,-2 M -3,-1 -2,-3 h 4 l 1,2 m -9,0 H 6 M -6,1 H 6 m -9,0 1,2 H 2 L 3,1",
+						plats: [-1, 1],
+                        position: [106, 107, 108, 109],
+                        station_id: 22,
+                        platform: -32
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6", 
+                        position: [2223, 2322],
+					},
+                    {
+						station_name: "柏の葉キャンパス",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+                        position: [114, 115],
+                        station_id: 23
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6", 
+                        position: [2324, 2423],
+					},
+                    {
+						station_name: "柏たなか",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+                        position: [118, 119],
+                        station_id: 24
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6", 
+                        position: [2425, 2524],
+					},
+                    {
+						station_name: "守谷",
+						tracks: "m 3.9344482,0.99036818 -1,-1.99999998 m -0.5876295,2.00392259 -1,-1.99999999 M 2.8333333,1 l -1,2 m 0.835289,-4.0057092 -1,-2 m -2.963017,4.00157509 H 4.0431789 M -6,-1 h 1 l 1,-2 h 8 l 1,2 h 1 m -3.6531813,-0.00571 -1,1.99999999 m -3.0154412,-10e-9 -1,-1.99999998 m -1.334311,-1.9884239 1.334311,1.9884239 H 2.6686223 L 4.0029335,-2.9941331 M -3,3 -1.8333333,1 H 2.8333333 L 4,3 M -6,1 h 1 l 1,2 H 4 L 5,1 h 1 m -7.3031645,-1.99986268 h 5.3476069",
+						plats: [-1, 1],
+                        position: [122, 123,124,125],
+                        station_id: 25,
+                        platform: -32
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6", 
+                        position: [2526, 2625],
+					},
+                    {
+						station_name: "みらい平",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+                        position: [136, 137],
+                        station_id: 26
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6", 
+                        position: [2627, 2726],
+					},
+                    {
+						station_name: "みどりの",
+						tracks: "M-6,-1H6M-6,1H6M3,1L2,-1",
+						plats: [-1, 1],
+                        position: [140, 141],
+                        station_id: 27
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6", 
+                        position: [2728, 2827],
+					},
+                    {
+						station_name: "万博記念公園",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+                        position: [144, 145],
+                        station_id: 28
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6", 
+                        position: [2829, 2928],
+					},
+                    {
+						station_name: "研究学園",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+                        position: [148, 149],
+                        station_id: 29
+					},
+                    {
+                        tracks: "M-6,-1H6M-6,1H6", 
+                        position: [2930, 3029],
+					},
+                    {
+						station_name: "つくば",
+						tracks: "M-6,-1H6M-6,1H6M-3,-1L-2,1M-3,1L-2,-1",
+						plats: [0],
+                        position: [152, 153],
+                        station_id: 30
+					}
+            ]}};
+
+            const button_cfg = [
+                { line_id: 26001, line_name: "東横線", link: "./" },
+                { line_id: 26002, line_name: "目黒線", link: "./" },
+                { line_id: 26003, line_name: "田園都市線", link: "./" },
+                { line_id: 26004, line_name: "大井町線", link: "./" },
+                { line_id: 26005, line_name: "池上線", link: "./" },
+                { line_id: 26006, line_name: "東急多摩川線", link: "./" },
+                { line_id: 26009, line_name: "東急新横浜線", link: "./" },
+                { line_id: 26010, line_name: "みなとみらい線", link: "./" }
+            ]
+
+            
+
+
+            const train_kind_disp = {
+                "null": "null",
+                "0": "?",
+                "1": '<span style="color:blue;">普通</span>',
+                "2": '<span style="color:limegreen; font-weight:bold;">区快</span>',
+                "3": '<span style="color:limegreen; font-weight:bold;">区快</span>',
+                "4": '<span style="color:red; font-weight:bold;">快速</span>',
+                "10": '<span style="color:white; background:red;">回送</span>',
+                "13": '<span style="color:orangered; font-weight:bold;">通快</span>'
+		    }
+
+            const destination_station = {
+                "null": "null",
+                "0": "未設定",
+                "11": "秋葉原",
+                "12": "新御徒町",
+                "13": "浅草",
+                "14": "南千住",
+                "15": "北千住",
+                "16": "青井",
+                "17": "六町",
+                "18": "八潮",
+                "19": "三郷中央",
+                "20": "南流山",
+                "21": "流山セントラルパーク",
+                "22": "流山おおたかの森",
+                "23": "柏の葉キャンパス",
+                "24": "柏たなか",
+                "25": "守谷",
+                "26": "みらい平",
+                "27": "みどりの",
+                "28": "万博記念公園",
+                "29": "研究学園",
+                "30": "つくば"
+            }
+
+            /* SVGオブジェクトの作成 */
+            function createSVG(tag){
+			    return document.createElementNS("http://www.w3.org/2000/svg", tag);
+		    }
+
+            /* 画面の初期化(描画) */
+            var curline;
+            var elem;
+            function init(){
+                /* ボタン描画 */
+                var sel = document.getElementById("sel");
+
+                const currentUrl = window.location.origin;
+                /* 別路線のボタンを表示 */
+                button_cfg.forEach(function (o, i, a){
+                    var btn = document.createElement("button");
+                    btn.className = "line" + o.line_id;
+                    btn.innerHTML = o.line_name;
+                    btn.setAttribute('onclick', "location.href='" + o.link + "'");
+                    sel.appendChild(btn);
+                });
+
+                /* つくばエクスプレスを最後に表示 */
+                var btn = document.createElement("button");
+                btn.className = "tx_line";
+                btn.innerHTML = "つくばエクスプレス";
+                btn.setAttribute('onclick', "location.href=new URL('./', window.location.href).href");
+                sel.appendChild(btn);
+                
+
+
+
+
+
+
+
+                /* 線描画 */
+                curline = "tx";
+                var main = document.getElementById("main");
+                linedata[curline].sections.forEach(function (o, i, a){
+                    var sec = document.createElement("div");
+                    sec.style.height = "192px";
+				    sec.style.cssFloat = "left";
+				    sec.style.position = "relative";
+                    var svg = createSVG("svg");
+                    svg.setAttribute("height", "192px");
+
+                    /* 描画します */
+                    sec.style.width = "192px";
+                    svg.setAttribute("width", "192px");
+                    svg.setAttribute("viewBox", "-96 -96 192 192");
+
+                    /* 東急版と同じく、ホームを先に描画して駅名をその上に重ねる */
+                    if ("plats" in o){
+                        o.plats.forEach(function (p, i, a){
+                            var plat = createSVG("rect");
+                            plat.setAttribute("x", -31.5);
+                            plat.setAttribute("y", p * 32 - 9.5);
+                            plat.setAttribute("width", 63);
+                            plat.setAttribute("height", 19);
+                            plat.setAttribute("stroke", "white");
+                            plat.setAttribute("stroke-width", 1);
+                            plat.setAttribute("fill", "deepskyblue");
+                            svg.appendChild(plat);
+                        });
+                    }
+                    if ("station_name" in o){
+                        var text = createSVG("text");
+                        text.setAttribute("x", 0);
+                        text.setAttribute("y", 6);
+                        text.setAttribute("font-size", 16);
+                        text.setAttribute("font-weight", "bold");
+                        text.setAttribute("text-anchor", "middle");
+                        text.setAttribute("fill", "white");
+                        text.innerHTML = o.station_name;
+                        svg.appendChild(text);
+                    }
+                    if ("tracks" in o){
+                        var track = createSVG("path");
+                        track.setAttribute("d", o.tracks);
+                        track.setAttribute("stroke", "white");
+                        track.setAttribute("stroke-width", 0.125);
+                        track.setAttribute("fill", "none");
+                        track.setAttribute("transform", "scale(16)");
+                        svg.appendChild(track);
+                    }
+
+                    if ("position" in o){
+                        if (!("station_name" in o)) {
+                            o.position.forEach(function (s, i, a){
+                                var line = createSVG("line");
+                                line.setAttribute("x1", -64);
+                                line.setAttribute("y1", (i - a.length / 2) * -32 - 16);
+                                line.setAttribute("x2", 64);
+                                line.setAttribute("y2", (i - a.length / 2) * -32 - 16);
+                                line.setAttribute("stroke", "white");
+                                line.setAttribute("stroke-width", 2);
+                                svg.appendChild(line);
+                            });
+                        }
+                        o.position.forEach(function (s, i, a){
+
+                            const count = i + 1; 
+                            var canv = document.createElement("div");
+                            if ("station_name" in o){
+                                canv.id = o.station_id + "s" + s + "p";
+                            }else{
+                                canv.id = s + "p";
+                            }
+                            canv.className = "section";
+
+                            if ("platform" in o){
+                                canv.style.top = (i * 32 + (i < 0 ? 64 : 32) + o.platform) + "px";
+                            }else{
+                                canv.style.top = i * 32 + (i < 0 ? 64 : 32) + "px";
+                            }
+
+
+
+                            canv.style.left = "64px";
+                            sec.appendChild(canv);
+                        });
+                    }
+                    sec.insertBefore(svg, sec.firstChild);
+                    main.appendChild(sec);
+                });
+                update();
+			    setInterval(update, 10000);
+            }
+
+
+            var request = null;
+		    function update(){
+                if (request != null)
+				    return;
+
+                request = new XMLHttpRequest();
+                request.open("GET", "https://w-tid.jp/tokyu/tx.json?".concat(+new Date), true);
+                request.onreadystatechange = function (){
+                    if (request.readyState != 4 || request.status != 200)
+					    return;
+				    var res = JSON.parse(request.responseText);
+
+                    
+                    linedata[curline].sections.forEach(function (o, i, a){
+                        if ('position' in o){
+                            for (var i = -3; i <= 3; ++i){
+                                if (i == 0)
+				    			    continue;
+                                o.position.forEach(function (s){
+
+                                    if ('station_id' in o){
+                                        var elem = document.getElementById(o.station_id + "s" + s + "p");
+                                    }else{
+                                        var elem = document.getElementById(s + "p");
+                                    }
+                                    while (elem.lastChild)
+				    			        elem.removeChild(elem.lastChild);
+                                });
+                            }
+                        }
+                    });
+                    /* 更新時間を表示させます */
+                    var updatetime = document.getElementById("update");
+                    const date = new Date(res.updated_at * 1000);
+                    document.getElementById("update").textContent = '更新時刻:' + date.toLocaleString();
+
+
+
+
+
+                    
+                    
+
+                    res.trains.forEach(function (o, i, a){
+                        /* 電車を描く */
+                        var tra = document.createElement("a");
+					    tra.className = "train line" + o.train_kind_id; /* 種別によって表示色を変更します。 */
+                        tra.href = "https://www.tx-app.com/lines/mainline/trains/" + o.train_number;
+                        tra.setAttribute('target', '_blank');
+                        tra.setAttribute('rel', 'noopener');
+                        var box = document.createElement("div");
+					    box.className = "box";
+                        box.innerHTML = "<div class=\"numberkind\">" + o.train_number + " " + train_kind_disp[o.train_kind_id] + "</div><div class=\"boxdest\">" + (('destination_station_id' in o) ? destination_station[o.destination_station_id] : "") + "</div>";
+                        tra.appendChild(box);
+					    var dir = document.createElement("div");
+                        if (o.direction == "up"){
+                            dir.className = "up";
+                        }else{
+                            dir.className = "down";
+                        }
+
+                        tra.appendChild(dir);
+					    if (o.delay > 60){
+                            var delay = document.createElement("div");
+                            delay.className = "delay";
+                            delay.innerHTML = "+" + Math.floor(o.delay / 60);
+                            tra.appendChild(delay);
+                        }
+                        if ('train_orchestration_number' in o){
+                            var info = document.createElement("div");
+                            info.className = "info";
+                            var formNo = (o.train_orchestration_number >= 1 && o.train_orchestration_number <= 14 ? 1 : o.train_orchestration_number >= 67 && o.train_orchestration_number <= 70 || o.train_orchestration_number >= 72 && o.train_orchestration_number <= 73 ? 2 : o.train_orchestration_number >= 81 && o.train_orchestration_number <= 85 ? 3 : 2);
+                            info.innerHTML = formNo + "6" + String(o.train_orchestration_number).padStart(2, '0') + "F";
+                            tra.appendChild(info);
+                        }
+                        if (o.next_station_id == null){
+                            /* 駅に到着している場合 */
+                            var printID = o.station_id + "s" + o.position + "p";
+                        }else{
+                            /* 駅間にいる場合 */
+
+                            var printID = "".concat(o.station_id,o.next_station_id, "p"); 
+                        }
+
+
+
+
+                        if (document.getElementById(printID) != null)
+						    document.getElementById(printID).appendChild(tra);
+					    else
+						    document.getElementById("log").innerText += "Unknown: " + elem + "\t" + JSON.stringify(o) + "\n";
+                    });
+                    request = null;
+                }
+                request.send(null);
+            }
+            document.addEventListener("DOMContentLoaded", init, false);
+        </script>
+        <style>
+            body { background-color: #000313; color: white; }
+            button {
+                font-size: 150%;
+                color: white;
+                background-color: #09357F;
+            }
+            button.line26001 { background-color: #d90240; }
+            button.line26002 { background-color: #009cd3; }
+            button.line26003 { background-color: #01aa8f; }
+            button.line26004 { background-color: #f08d41; }
+            button.line26005 { background-color: #ed85a7; }
+            button.line26006 { background-color: #ad0277; }
+            button.line26009 { background-color: #890d84; }
+            button.line26010 { background-color: #09357f; }
+            .section {
+                position: absolute;
+                left: 0px;
+                height: 96px;
+                width: 64px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                z-index: 2;
+            }
+            svg { z-index: 1; }
+            svg text { fill: white; }
+            svg path { stroke: white; }
+            svg rect { stroke: white; }
+            .train {
+                position: relative;
+                width: 96px;
+                height: 24px;
+            }
+            .train.line0 { border-color: #000; }
+            .train.line1 { border-color: #009cd3; }
+            .train.line2 { border-color: #f08d41; }
+            .train.line3 { border-color: #ed85a7; }
+            .train.line4 { border-color: #d90240; }
+            .train.line10 { border-color: #000; }
+            .train.line13 { border-color: #01aa8f; }
+            .train > .box {
+                position: absolute;
+                left: 2px;
+                top: -1.5px;
+                width: 56px;
+                height: 23px;
+                background-color: white;
+                color: #000;
+                border: solid;
+                border-color: inherit;
+                border-width: 2px;
+                font-size: 14px;
+                z-index: 4;
+            }
+            .train > .up {
+                position: absolute;
+                left: -2px;
+                top: 0;
+                width: 0;
+                height: 0;
+                border: solid;
+                border-width: 12px 4px 12px 0;
+                border-left-color: transparent;
+                border-right-color: inherit;
+                border-top-color: transparent;
+                border-bottom-color: transparent;
+            }
+            .train > .down {
+                position: absolute;
+                left: 62px;
+                top: 0;
+                width: 0;
+                height: 0;
+                border: solid;
+                border-width: 12px 0 12px 4px;
+                border-left-color: inherit;
+                border-right-color: transparent;
+                border-top-color: transparent;
+                border-bottom-color: transparent;
+            }
+            .train > .delay {
+                position: absolute;
+                left: 64px;
+                top: -4px;
+                width: 32px;
+                height: 16px;
+                color: #f6608b;
+                font-size: 12px;
+                font-weight: bold;
+                z-index: 3;
+            }
+            .train > .box .numberkind {
+                position: absolute;
+                left: 0px;
+                top: -1px;
+                width: 56px;
+                height: 16px;
+                font-size: 11px;
+                font-weight: normal;
+                text-align: center;
+                white-space: nowrap;
+                z-index: 6;
+            }
+            .train > .box .boxdest {
+                position: absolute;
+                left: 0px;
+                top: 10px;
+                width: 56px;
+                height: 16px;
+                text-align: center;
+                font-size: 11px;
+                font-weight: normal;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            .train > .info {
+                position: absolute;
+                left: 66px;
+                top: 10px;
+                width: 44px;
+                height: 14px;
+                background-color: rgba(255, 255, 255, 0.7);
+                color: darkcyan;
+                font-size: 11px;
+                z-index: 3;
+            }
+        </style>
+    </head>
+    <body style="background-color: #000313">
+        <div style="font-size: 12px"><br /></div>
+        <div id="sel" style="padding-bottom: 32px"></div>
+        <div id="update" style="margin-top: -30px; color: #fff;"></div>
+        <div id="main"></div>
+        <div id="log" style="clear: left"></div>
+    </body>
+</html>

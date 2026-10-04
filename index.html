@@ -1280,6 +1280,13 @@
           sel.appendChild(btn);
         });
 
+		var txbtn = document.createElement("button");
+		txbtn.innerHTML = "つくばエクスプレス";
+		txbtn.addEventListener("click", function () {
+		  location.href = "/txtid.html";
+		});
+		sel.appendChild(txbtn);
+
         if (!curline in linedata) return;
 
         var main = document.getElementById("main");

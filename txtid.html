@@ -5,7 +5,6 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=0.5" />
         <title>TX在線モニタ</title>
-		<link rel="icon" type="image/x-icon" href="tx.png">
         <script type="text/javascript">
             /* 在線描画設定部分 */
             const linedata =
@@ -464,8 +463,19 @@
                         tra.setAttribute('rel', 'noopener');
                         var box = document.createElement("div");
 					    box.className = "box";
-                        box.innerHTML = "<div class=\"numberkind\">" + o.train_number + " " + train_kind_disp[o.train_kind_id] + "</div><div class=\"boxdest\">" + (('destination_station_id' in o) ? destination_station[o.destination_station_id] : "") + "</div>";
                         tra.appendChild(box);
+                        var opno = document.createElement("div");
+                        opno.className = "opno";
+                        opno.textContent = o.train_number;
+                        tra.appendChild(opno);
+                        var kind = document.createElement("div");
+                        kind.className = "kind";
+                        kind.innerHTML = train_kind_disp[o.train_kind_id] || "?";
+                        tra.appendChild(kind);
+                        var dest = document.createElement("div");
+                        dest.className = "dest";
+                        dest.textContent = (('destination_station_id' in o) ? destination_station[o.destination_station_id] : "");
+                        tra.appendChild(dest);
 					    var dir = document.createElement("div");
                         if (o.direction == "up"){
                             dir.className = "up";
@@ -602,29 +612,42 @@
                 font-weight: bold;
                 z-index: 3;
             }
-            .train > .box .numberkind {
+            .train > .opno {
                 position: absolute;
-                left: 0px;
-                top: -1px;
-                width: 56px;
+                left: 6px;
+                top: 0px;
+                width: 52px;
                 height: 16px;
+                color: #000;
                 font-size: 11px;
-                font-weight: normal;
-                text-align: center;
-                white-space: nowrap;
+                text-align: left;
                 z-index: 6;
             }
-            .train > .box .boxdest {
+            .train > .kind {
                 position: absolute;
-                left: 0px;
-                top: 10px;
-                width: 56px;
+                left: 6px;
+                top: 0px;
+                width: 52px;
                 height: 16px;
-                text-align: center;
                 font-size: 11px;
-                font-weight: normal;
-                white-space: nowrap;
-                overflow: hidden;
+                text-align: right;
+                z-index: 6;
+            }
+            .train > .kind > span {
+                display: inline-block;
+                height: 13px;
+                padding: 0 1.5px;
+            }
+            .train > .dest {
+                position: absolute;
+                left: 3px;
+                top: 11px;
+                width: 58px;
+                height: 16px;
+                color: #000;
+                font-size: 11px;
+                text-align: center;
+                z-index: 6;
             }
             .train > .info {
                 position: absolute;

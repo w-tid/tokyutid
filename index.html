@@ -1555,7 +1555,7 @@
                 formation = 40076 + no;
               else if (aff == "相" && no >= 1 && no <= 7)
                 formation = "201" + ("0" + no).slice(-2);
-              if (formation[0] == "Y") {
+              if (formation != null && formation[0] == "Y") {
                 info.innerHTML += "み" + formation;
               } else if (formation != null) {
                 info.innerHTML += aff + formation;

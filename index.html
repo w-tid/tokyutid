@@ -1466,46 +1466,103 @@
             info.className = "dest";
 
             if (
+              linedata[curline].line_id == 26003 &&
+              o.destination_station_code == 45
+            ) {
+              info.textContent = "取得中";
+              tra.appendChild(info);
+
+              var stationId = o.station_id;
+
+              if (
+                stationId != null &&
+                o.operation_number != null &&
+                o.kind != null
+              ) {
+                var apiUrl =
+                  "https://timetable-api.tokyuapp.com/lines/26003/trains/" +
+                  encodeURIComponent(o.operation_number) +
+                  "/directions/" +
+                  (o.up ? "up" : "down") +
+                  "/kinds/" +
+                  encodeURIComponent(o.kind) +
+                  "/delays/" +
+                  (o.delay_time || 0);
+
+				if ("section_id" in o && o.section_id != null) {
+				  // 駅間にいる場合
+				  apiUrl += "/sections/" + encodeURIComponent(o.section_id);
+				} else if ("station_id" in o && o.station_id != null) {
+				  // 駅にいる場合
+				  apiUrl += "/stations/" + encodeURIComponent(o.station_id);
+				} else {
+				  // どちらのIDもない場合は取得しない
+				  info.textContent = "F線直通";
+				  return;
+				}
+
+                fetch(apiUrl)
+                  .then(function (response) {
+                    if (!response.ok) {
+                      throw new Error("HTTP " + response.status);
+                    }
+                    return response.json();
+                  })
+                  .then(function (data) {
+                    if (data.destination) {
+                      info.textContent = data.destination;
+                    } else {
+                      info.textContent = "Z線直通";
+                    }
+                  })
+                  .catch(function (error) {
+                    console.error("行き先取得エラー:", error);
+                    info.textContent = "Z線直通";
+                  });
+              } else {
+                info.textContent = "Z線直通";
+              }
+            } else if (
               "destination" in o &&
-              (!("destination_station_code" in o) ||
-                o.destination_station_code == 33 ||
+              (!( "destination_station_code" in o) ||
                 o.destination_station_code == 111)
             ) {
               if (o.destination == "元町中華") {
-                info.innerHTML += "元町中華街";
+                info.innerHTML = "元町中華街";
               } else {
-                info.innerHTML += o.destination;
+                info.textContent = o.destination;
               }
             } else if ("destination_station_code" in o) {
               if (
                 linedata[curline].line_id == 26001 ||
                 linedata[curline].line_id == 26002 ||
                 linedata[curline].line_id == 26009
-              )
-                info.innerHTML +=
+              ) {
+                info.innerHTML =
                   o.destination_station_code in destination_name_tymg
                     ? destination_name_tymg[o.destination_station_code]
                     : '<span style="background-color:red;">' +
                       o.destination_station_code +
                       "</span>";
+              }
 
               if (
                 linedata[curline].line_id == 26003 ||
                 linedata[curline].line_id == 26004 ||
                 linedata[curline].line_id == 26008
-              )
-                info.innerHTML +=
+              ) {
+                info.innerHTML =
                   o.destination_station_code in destination_name_dtom
                     ? destination_name_dtom[o.destination_station_code]
                     : '<span style="background-color:red;">' +
                       o.destination_station_code +
                       "</span>";
+              }
             }
 
             if (info.innerHTML != "") tra.appendChild(info);
-			var destinationInfo = info;
 
-            if (o.delay_time > 0) {
+			if (o.delay_time > 0) {
               var delay = document.createElement("div");
               delay.className = "delay";
               delay.innerHTML = "+" + o.delay_time;
@@ -1700,14 +1757,6 @@
                   if (Object.keys(data).length === 0) {
                     return;
                   }
-				  if (
-					"destination_station" in data &&
-					data.destination_station != null &&
-					data.destination_station != "" &&
-					o.destination_station_code == 45
-					) {
-					destinationInfo.textContent = data.destination_station;
-				  }
                   var unit_number = data.unit_number;
                   if (unit_number.slice(0, 2) == "00") {
                     unit_number = "急" + unit_number.slice(2);

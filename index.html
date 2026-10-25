@@ -1503,6 +1503,7 @@
             }
 
             if (info.innerHTML != "") tra.appendChild(info);
+			var destinationInfo = info;
 
             if (o.delay_time > 0) {
               var delay = document.createElement("div");
@@ -1699,6 +1700,13 @@
                   if (Object.keys(data).length === 0) {
                     return;
                   }
+				  if (
+					"destination_station" in data &&
+					data.destination_station != null &&
+					data.destination_station != ""
+					) {
+					destinationInfo.textContent = data.destination_station;
+				  }
                   var unit_number = data.unit_number;
                   if (unit_number.slice(0, 2) == "00") {
                     unit_number = "急" + unit_number.slice(2);

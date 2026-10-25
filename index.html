@@ -1469,7 +1469,6 @@
               linedata[curline].line_id == 26003 &&
               o.destination_station_code == 45
             ) {
-              info.textContent = "取得中";
               tra.appendChild(info);
 
               var stationId = o.station_id;
@@ -1497,7 +1496,7 @@
 				  apiUrl += "/stations/" + encodeURIComponent(o.station_id);
 				} else {
 				  // どちらのIDもない場合は取得しない
-				  info.textContent = "F線直通";
+				  info.textContent = "Z線直通";
 				  return;
 				}
 

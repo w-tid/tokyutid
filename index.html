@@ -1518,6 +1518,7 @@
 			  if (
 			    "destination" in o &&
 			    (!("destination_station_code" in o) ||
+				  o.destination_station_code == 33 ||
 			      o.destination_station_code == 111)
 			  ) {
 			    destInfo.textContent =

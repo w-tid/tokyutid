@@ -1135,6 +1135,7 @@
       const destination_name_tymg = {
         0: "0",
         33: '<span style="color:saddlebrown;">F線直通</span>',
+		42: '<span style="color:silver;">H線直通</span>',
         54: '<span style="color:dodgerblue;">I線直通</span>',
         67: '<span style="color:lightseagreen;">N線直通</span>',
         71: "目黒",
@@ -1462,83 +1463,83 @@
                 : '<span style="background:red;">' + info.innerHTML + "</span>";
             if (info.innerHTML != "") tra.appendChild(info);
 
-var destInfo = document.createElement("div");
-destInfo.className = "dest";
+			var destInfo = document.createElement("div");
+			destInfo.className = "dest";
 
-if (
-  linedata[curline].line_id == 26003 &&
-  o.destination_station_code == 33
-) {
-  destInfo.textContent = "取得中";
-  tra.appendChild(destInfo);
+			if (
+			  linedata[curline].line_id == 26003 &&
+			  o.destination_station_code == 33
+			) {
+			  tra.appendChild(destInfo);
 
-  var apiUrl =
-    "https://timetable-api.tokyuapp.com/lines/26003/trains/" +
-    encodeURIComponent(o.operation_number) +
-    "/directions/" +
-    (o.up ? "up" : "down") +
-    "/kinds/" +
-    encodeURIComponent(o.kind) +
-    "/delays/" +
-    (o.delay_time || 0);
+			  var apiUrl =
+			    "https://timetable-api.tokyuapp.com/lines/26003/trains/" +
+			    encodeURIComponent(o.operation_number) +
+			    "/directions/" +
+			    (o.up ? "up" : "down") +
+			    "/kinds/" +
+			    encodeURIComponent(o.kind) +
+			    "/delays/" +
+			    (o.delay_time || 0);
 
-  if ("section_id" in o && o.section_id != null) {
-    apiUrl += "/sections/" + encodeURIComponent(o.section_id);
-  } else if ("station_id" in o && o.station_id != null) {
-    apiUrl += "/stations/" + encodeURIComponent(o.station_id);
-  } else {
-    destInfo.textContent = "F線直通";
-  }
+			  if ("section_id" in o && o.section_id != null) {
+			    apiUrl += "/sections/" + encodeURIComponent(o.section_id);
+			  } else if ("station_id" in o && o.station_id != null) {
+			    apiUrl += "/stations/" + encodeURIComponent(o.station_id);
+			  } else {
+			    destInfo.textContent = '<span style="color:mediumpurple;">Z線直通</span>';
+			  }
 
-  if (
-    ("section_id" in o && o.section_id != null) ||
-    ("station_id" in o && o.station_id != null)
-  ) {
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        destInfo.textContent = data.destination || "F線直通";
-      })
-      .catch(() => {
-        destInfo.textContent = "F線直通";
-      });
-  }
-} else {
-  if (
-    "destination" in o &&
-    (!("destination_station_code" in o) ||
-      o.destination_station_code == 111)
-  ) {
-    destInfo.textContent =
-      o.destination == "元町中華" ? "元町中華街" : o.destination;
-  } else if ("destination_station_code" in o) {
-    if (
-      [26001, 26002, 26009].includes(linedata[curline].line_id)
-    ) {
-      destInfo.innerHTML =
-        o.destination_station_code in destination_name_tymg
-          ? destination_name_tymg[o.destination_station_code]
-          : '<span style="background-color:red;">' +
-            o.destination_station_code +
-            "</span>";
-    }
+			  if (
+			    ("section_id" in o && o.section_id != null) ||
+			    ("station_id" in o && o.station_id != null)
+			  ) {
+			    fetch(apiUrl)
+			      .then(response => response.json())
+			      .then(data => {
+			        destInfo.textContent = data.destination || '<span style="color:mediumpurple;">Z線直通</span>';
+			      })
+			      .catch(() => {
+			        destInfo.textContent = '<span style="color:mediumpurple;">Z線直通</span>';
+			      });
+			  }
+			} else {
+			  if (
+			    "destination" in o &&
+			    (!("destination_station_code" in o) ||
+			      o.destination_station_code == 111)
+			  ) {
+			    destInfo.textContent =
+			      o.destination == "元町中華" ? "元町中華街" : o.destination;
+			  } else if ("destination_station_code" in o) {
+			    if (
+			      [26001, 26002, 26009].includes(linedata[curline].line_id)
+			    ) {
+			      destInfo.innerHTML =
+			        o.destination_station_code in destination_name_tymg
+			          ? destination_name_tymg[o.destination_station_code]
+			          : '<span style="background-color:red;">' +
+			            o.destination_station_code +
+			            "</span>";
+			    }
 
-    if (
-      [26003, 26004, 26008].includes(linedata[curline].line_id)
-    ) {
-      destInfo.innerHTML =
-        o.destination_station_code in destination_name_dtom
-          ? destination_name_dtom[o.destination_station_code]
-          : '<span style="background-color:red;">' +
-            o.destination_station_code +
-            "</span>";
-    }
-  }
+			    if (
+			      [26003, 26004, 26008].includes(linedata[curline].line_id)
+			    ) {
+			      destInfo.innerHTML =
+			        o.destination_station_code in destination_name_dtom
+				          ? destination_name_dtom[o.destination_station_code]
+			          : '<span style="background-color:red;">' +
+ 			           o.destination_station_code +
+			            "</span>";
+			    }
+			  }
 
-  if (destInfo.innerHTML != "") {
-    tra.appendChild(destInfo);
-  }
-}
+			  if (destInfo.innerHTML != "") {
+			    tra.appendChild(destInfo);
+			  }
+			}
+			  
             if (o.delay_time > 0) {
               var delay = document.createElement("div");
               delay.className = "delay";

@@ -1471,6 +1471,7 @@
 			  o.destination_station_code == 45
 			) {
 			  tra.appendChild(destInfo);
+			  destInfo.innerHTML = '<span style="color:mediumpurple;">Z線直通</span>';
 
 			  var apiUrl =
 			    "https://timetable-api.tokyuapp.com/lines/26003/trains/" +
@@ -1501,7 +1502,7 @@
 			      .then(response => response.json())
 			      .then(data => {
 				    if (data.destination) {
-				      destInfo.textContent = data.destination;
+				      destInfo.textContent = data.destination.replace("[スカイツリー前]", "");
 				    } else {
 				      destInfo.innerHTML = '<span style="color:mediumpurple;">Z線直通</span>';
 				    }

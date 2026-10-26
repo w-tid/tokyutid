@@ -1466,15 +1466,24 @@
 			var destInfo = document.createElement("div");
 			destInfo.className = "dest";
 
-			if (
-			  o.train_line_id == 26003 &&
-			  o.destination_station_code == 45
-			) {
+			var fallbackText = "";
+
+			if (o.train_line_id == 26003 && o.destinaton_station_code == 45) {
+			  fallbackText = '<span style="color:mediumpurple;">Z線直通</span>';
+			} else if (o.train_line_id == 26002 && o.destination_station_code == 54) {
+			  fallbackText = '<span style="color:dodgerblue;">I線直通</span>';
+			} else if (o.train_line_id == 26002 && o.destination_station_code == 67) {
+			  fallbackText = '<span style="color:lightseagreen;">N線直通</span>';
+			}
+
+			if (fallbackText != "") {
+			  destInfo.innerHTML = fallbackText;
 			  tra.appendChild(destInfo);
-			  destInfo.innerHTML = '<span style="color:mediumpurple;">Z線直通</span>';
 
 			  var apiUrl =
-			    "https://timetable-api.tokyuapp.com/lines/26003/trains/" +
+			    "https://timetable-api.tokyuapp.com/lines/" +
+			    o.train_line_id +
+			    "/trains/" +
 			    encodeURIComponent(o.operation_number) +
 			    "/directions/" +
 			    (o.up ? "up" : "down") +
@@ -1488,30 +1497,22 @@
 			  } else if ("station_id" in o && o.station_id != null) {
 			    apiUrl += "/stations/" + encodeURIComponent(o.station_id);
 			  } else {
-				  destInfo.textContent = data.destination || "";
-				  if (!data.destination) {
-				    destInfo.innerHTML = '<span style="color:mediumpurple;">Z線直通</span>';
-				  }
+			    apiUrl = "";
 			  }
 
-			  if (
-			    ("section_id" in o && o.section_id != null) ||
-			    ("station_id" in o && o.station_id != null)
-			  ) {
+			  if (apiUrl != "") {
 			    fetch(apiUrl)
 			      .then(response => response.json())
 			      .then(data => {
-				    if (data.destination) {
-				      destInfo.textContent = data.destination.replace("[スカイツリー前]", "");
-				    } else {
-				      destInfo.innerHTML = '<span style="color:mediumpurple;">Z線直通</span>';
-				    }
-				  })
-					.catch(() => {
-					destInfo.textContent = data.destination || "";
-					if (!data.destination) {
-					  destInfo.innerHTML = '<span style="color:mediumpurple;">Z線直通</span>';
-					}
+			        if (data.destination) {
+			          destInfo.textContent =
+			            data.destination.replace("[スカイツリー前]", "");
+			        } else {
+			          destInfo.innerHTML = fallbackText;
+			        }
+			      })
+			      .catch(() => {
+			        destInfo.innerHTML = fallbackText;
 			      });
 			  }
 			} else {

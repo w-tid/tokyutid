@@ -1468,7 +1468,7 @@
 
 			if (
 			  linedata[curline].line_id == 26003 &&
-			  o.destination_station_code == 33
+			  o.destination_station_code == 45
 			) {
 			  tra.appendChild(destInfo);
 
@@ -1487,7 +1487,10 @@
 			  } else if ("station_id" in o && o.station_id != null) {
 			    apiUrl += "/stations/" + encodeURIComponent(o.station_id);
 			  } else {
-			    destInfo.textContent = '<span style="color:mediumpurple;">Z線直通</span>';
+				  destInfo.textContent = data.destination || "";
+				  if (!data.destination) {
+				    destInfo.innerHTML = '<span style="color:mediumpurple;">Z線直通</span>';
+				  }
 			  }
 
 			  if (
@@ -1497,10 +1500,17 @@
 			    fetch(apiUrl)
 			      .then(response => response.json())
 			      .then(data => {
-			        destInfo.textContent = data.destination || '<span style="color:mediumpurple;">Z線直通</span>';
-			      })
-			      .catch(() => {
-			        destInfo.textContent = '<span style="color:mediumpurple;">Z線直通</span>';
+				    if (data.destination) {
+				      destInfo.textContent = data.destination;
+				    } else {
+				      destInfo.innerHTML = '<span style="color:mediumpurple;">Z線直通</span>';
+				    }
+				  })
+					.catch(() => {
+					destInfo.textContent = data.destination || "";
+					if (!data.destination) {
+					  destInfo.innerHTML = '<span style="color:mediumpurple;">Z線直通</span>';
+					}
 			      });
 			  }
 			} else {

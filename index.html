@@ -1479,7 +1479,7 @@
 			  fallbackText = '<span style="color:dodgerblue;">I線直通</span>';
 			} else if (trainLineId == 26002 && destinationCode == 67) {
 			  fallbackText = '<span style="color:lightseagreen;">N線直通</span>';
-			} else if ((trainLineId == 26002 || linedata[curline].line_id == 26009) && destinationCode == 111) {
+			} else if ((trainLineId == 26002 || linedata[curline].line_id == 26002 || linedata[curline].line_id == 26009) && destinationCode == 111) {
 			  fallbackText = '<span style="color:navy;">SO線直通</span>';
 			} else if ((linedata[curline].line_id == 26002 || linedata[curline].line_id == 26009) && destinationCode == 33) {
 			  fallbackText = '<span style="color:saddlebrown;">F線直通</span>';

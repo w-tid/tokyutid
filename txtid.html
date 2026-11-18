@@ -327,10 +327,16 @@
                     var svg = createSVG("svg");
                     svg.setAttribute("height", "192px");
 
-                    /* 描画します */
-                    sec.style.width = "192px";
-                    svg.setAttribute("width", "192px");
-                    svg.setAttribute("viewBox", "-96 -96 192 192");
+                    /* 駅の区画は192px、駅間の区画は東急版と同じ64px */
+                    if ("station_name" in o) {
+                        sec.style.width = "192px";
+                        svg.setAttribute("width", "192px");
+                        svg.setAttribute("viewBox", "-96 -96 192 192");
+                    } else {
+                        sec.style.width = "64px";
+                        svg.setAttribute("width", "64px");
+                        svg.setAttribute("viewBox", "-32 -96 64 192");
+                    }
 
                     /* 東急版と同じく、ホームを先に描画して駅名をその上に重ねる */
                     if ("plats" in o){
@@ -399,7 +405,7 @@
 
 
 
-                            canv.style.left = "64px";
+                            canv.style.left = ("station_name" in o) ? "64px" : "0px";
                             sec.appendChild(canv);
                         });
                     }
@@ -603,12 +609,13 @@
             }
             .train > .delay {
                 position: absolute;
-                left: 64px;
-                top: -4px;
-                width: 32px;
-                height: 16px;
-                color: #f6608b;
-                font-size: 12px;
+                left: 66px;
+                top: -2px;
+                width: 44px;
+                height: 12px;
+                background-color: rgba(255, 255, 255, 0.7);
+                color: red;
+                font-size: 11px;
                 font-weight: bold;
                 z-index: 3;
             }

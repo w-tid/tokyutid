@@ -1,2134 +1,1913 @@
 <!DOCTYPE html>
 
 <html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8" name="robots" content="noindex,nofollow,noarchive" />
-    <title>東急線在線モニタ</title>
-    <link rel="icon" type="image/x-icon" href="" id="favicon">
-    <script type="text/javascript">
-      const iconName = location.search.substring(1);
-      document.getElementById("favicon").href = iconName + ".png";
-      const linedata = {
-        toyoko: {
-          uri: "toyoko",
-          line_id: 26001,
-          line_name: "東横線",
-          sections: [
-            /*					{
-      	section_id: [1, 23],
-      },*/
-            {
-              station_id: 26,
-              station_name: "渋谷",
-              tracks:
-                "M-4,-1L-3,-3H3L4,-1M-6,-1H6M-6,1H6M-4,1L-3,3H3L4,1M-3,-1L-2,1M-3,1L-2,-1M3,-1L2,1M3,1L2,-1",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [2, 24],
-            },
-            {
-              station_id: 908,
-              station_name: "代官山",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [3, 25],
-            },
-            {
-              station_id: 909,
-              station_name: "中目黒",
-              tracks: "M-6,-1H6M-6,1H6M3,1L2.5,0L3,-1M2.5,0H2",
-              plats: [0],
-            },
-            {
-              section_id: [4, 26],
-            },
-            {
-              station_id: 910,
-              station_name: "祐天寺",
-              tracks: "M-6,-1H6M-6,1H6M-3,1L-2,3H2L3,1M-3,-1L-2,1M2,1L3,-1",
-              plats: [-1, 2],
-            },
-            {
-              section_id: [5, 27],
-            },
-            {
-              station_id: 911,
-              station_name: "学芸大学",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [6, 28],
-            },
-            {
-              station_id: 912,
-              station_name: "都立大学",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [7, 29],
-            },
-            {
-              station_id: 913,
-              station_name: "自由が丘",
-              tracks:
-                "M-3,-1L-2,-3H2L3,-1M-6,-1H5L6,-3M-6,1H5L6,3M-3,1L-2,3H2L3,1M3.5,-1L4.5,1",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [8, 52, 65, 30],
-            },
-            {
-              station_id: 914,
-              station_name: "田園調布",
-              tracks:
-                "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M3,-3L2,-1M3,-1L2,-3M3,3L2,1M3,1L2,3M4,-1L4.5,-2H5M4,1L4.5,2H5",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [9, 53, 66, 31],
-            },
-            {
-              station_id: 915,
-              station_name: "多摩川",
-              tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [10, 54, 67, 32],
-            },
-            {
-              station_id: 916,
-              station_name: "新丸子",
-              tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [11, 55, 68, 33],
-            },
-            {
-              station_id: 57,
-              station_name: "武蔵小杉",
-              tracks:
-                "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,-3L3,-1M2,3L3,1M4,-1L5,1M4,1L5,-1M5,3L6,-3",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [12, 56, 69, 34],
-            },
-            {
-              station_id: 918,
-              station_name: "元住吉",
-              tracks:
-                "M-6,-3H-5L-4,-5H4L5,-3H6M-3,-5L-2,-3H2L3,-5M-6,-1H6M-6,1H6M-3,5L-2,3H2L3,5M-6,3H-5L-4,5H4L5,3H6M-4,-1L-3.5,-2H-3M-4,1L-3.5,2H-3M6,-3L5.5,-4H5",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [13, 57, 70, 35],
-            },
-            {
-              station_id: 919,
-              station_name: "日吉",
-              tracks:
-                "M-2,-1L-3,-3M-2,1L-3,3M-6,-3H5L6,-1M-6,-1H5M-6,1H5M-6,3H5L6,1M2,-3L3,-1M2,3L3,1M4,-1L4.5,0H5M4,1L4.5,0",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [14, 36],
-            },
-            {
-              station_id: 920,
-              station_name: "綱島",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [15, 37],
-            },
-            {
-              station_id: 921,
-              station_name: "大倉山",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [16, 38],
-            },
-            {
-              station_id: 108,
-              station_name: "菊名",
-              tracks:
-                "M-3,-1L-2,-3H2L3,-1M-6,-1H6M-6,1H-4.5L-3.5,3H5L6,1M-3,3L-2,1H2L3,3M-6,-1L-5,1M-6,1L-5,-1M2,1H5M2,-1L3,1",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [17, 39],
-            },
-            {
-              station_id: 923,
-              station_name: "妙蓮寺",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [18, 40],
-            },
-            {
-              station_id: 924,
-              station_name: "白楽",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [19, 41],
-            },
-            {
-              station_id: 925,
-              station_name: "東白楽",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [20, 42],
-            },
-            {
-              station_id: 926,
-              station_name: "反町",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [21, 43],
-            },
-            {
-              station_id: 5,
-              station_name: "横浜",
-              tracks: "M-6,-1H6M-6,1H6M-3,-1L-2,1M-3,1L-2,-1",
-              plats: [0],
-            },
-            {
-              section_id: [71, 44],
-            },
-            {
-              station_id: 927,
-              station_name: "新高島",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [72, 45],
-            },
-            {
-              station_id: 928,
-              station_name: "みなとみらい",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [73, 46],
-            },
-            {
-              station_id: 929,
-              station_name: "馬車道",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [74, 47],
-            },
-            {
-              station_id: 930,
-              station_name: "日本大通り",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [75, 48],
-            },
-            {
-              station_id: 931,
-              station_name: "元町中華街",
-              tracks: "M-6,-1H6M-6,1H6M-3,-1L-2,1M-3,1L-2,-1",
-              plats: [0],
-            },
-            /*					{
-      	section_id: [22, 44],
-      },*/
-          ],
-        },
-        meguro: {
-          uri: "meguro",
-          line_id: 26002,
-          line_name: "目黒線",
-          sections: [
-            /*					{
-      	section_id: [45, 58],
-      },*/
-            {
-              station_id: 24,
-              station_name: "目黒",
-              tracks: "M-6,-1H6M-6,1H6M3,-1L2,1M3,1L2,-1",
-              plats: [0],
-            },
-            {
-              section_id: [46, 59],
-            },
-            {
-              station_id: 929,
-              station_name: "不動前",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [47, 60],
-            },
-            {
-              station_id: 930,
-              station_name: "武蔵小山",
-              tracks: "M-3,-1L-2,-3H2L3,-1M-6,-1H6M-6,1H6M-3,1L-2,3H2L3,1",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [48, 61],
-            },
-            {
-              station_id: 931,
-              station_name: "西小山",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [49, 62],
-            },
-            {
-              station_id: 932,
-              station_name: "洗足",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [50, 63],
-            },
-            {
-              station_id: 933,
-              station_name: "大岡山",
-              tracks: "M-6,-1H6M-6,1H6M3,1L2.5,0L3,-1M2.5,0H2",
-              plats: [0],
-            },
-            {
-              section_id: [51, 64],
-            },
-            {
-              station_id: 934,
-              station_name: "奥沢",
-              tracks: "M-6,-1H6M-6,1H6M-6,-1L-5,1M-3,1L-2,3L2,3L3,1M-4,1L-3,3",
-              plats: [-1, 2],
-            },
-            {
-              section_id: [8, 52, 65, 30],
-            },
-            {
-              station_id: 914,
-              station_name: "田園調布",
-              tracks:
-                "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M3,-3L2,-1M3,-1L2,-3M3,3L2,1M3,1L2,3M4,-1L4.5,-2H5M4,1L4.5,2H5",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [9, 53, 66, 31],
-            },
-            {
-              station_id: 915,
-              station_name: "多摩川",
-              tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [10, 54, 67, 32],
-            },
-            {
-              station_id: 916,
-              station_name: "新丸子",
-              tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [11, 55, 68, 33],
-            },
-            {
-              station_id: 57,
-              station_name: "武蔵小杉",
-              tracks:
-                "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,-3L3,-1M2,3L3,1M4,-1L5,1M4,1L5,-1M5,3L6,-3",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [12, 56, 69, 34],
-            },
-            {
-              station_id: 918,
-              station_name: "元住吉",
-              tracks:
-                "M-6,-3H-5L-4,-5H4L5,-3H6M-3,-5L-2,-3H2L3,-5M-6,-1H6M-6,1H6M-3,5L-2,3H2L3,5M-6,3H-5L-4,5H4L5,3H6M-4,-1L-3.5,-2H-3M-4,1L-3.5,2H-3M6,-3L5.5,-4H5",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [13, 57, 70, 35],
-            },
-            {
-              station_id: 919,
-              station_name: "日吉",
-              tracks:
-                "M-2,-1L-3,-3M-2,1L-3,3M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,-3L3,-1M2,3L3,1M4,-1L4.5,0H5M4,1L4.5,0",
-              plats: [-1, 1],
-            },
-          ],
-        },
-        dento: {
-          uri: "dento",
-          line_id: 26003,
-          line_name: "田園都市線",
-          sections: [
-            /*					{
-      	section_id: [71, 98],
-      },*/
-            {
-              station_id: 26,
-              station_name: "渋谷",
-              tracks: "M-6,-1H6M-6,1H6M-3,-1L-2,1M-3,1L-2,-1M2,1L3,-1",
-              plats: [0],
-            },
-            {
-              section_id: [72, 99],
-            },
-            {
-              station_id: 942,
-              station_name: "池尻大橋",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [73, 100],
-            },
-            {
-              station_id: 943,
-              station_name: "三軒茶屋",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [74, 101],
-            },
-            {
-              station_id: 944,
-              station_name: "駒沢大学",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [75, 102],
-            },
-            {
-              station_id: 945,
-              station_name: "桜新町",
-              tracks:
-                "M-6,-1H-5L-4,-3H4L5,-1H6M-3,-3L-2,-1H2L3,-3M-6,1H6M-3,1L-2,3H2L3,1",
-              plats: [0, 2],
-            },
-            {
-              section_id: [76, 103],
-            },
-            {
-              station_id: 946,
-              station_name: "用賀",
-              tracks: "M-6,-1H5L6,-3M-6,1H5L6,3M2,1L3,-1",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [77, 138, 155, 104],
-            },
-            {
-              station_id: 947,
-              station_name: "二子玉川",
-              tracks:
-                "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,1L3,-1M2,-1L3,1M4,-1L5,-3M4,1L5,3M-2,3L-3,1M-2,1L-3,3",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [78, 139, 156, 105],
-            },
-            {
-              station_id: 948,
-              station_name: "二子新地",
-              tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6",
-              plats: [-2, 2],
-            },
-            {
-              section_id: [79, 140, 157, 106],
-            },
-            {
-              station_id: 949,
-              station_name: "高津",
-              tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,-3L3,-1M2,3L3,1",
-              plats: [-2, 2],
-            },
-            {
-              section_id: [80, 141, 158, 107],
-            },
-            {
-              station_id: 950,
-              station_name: "溝の口",
-              tracks:
-                "M-6,-3H5L6,-1M-6,-1H3.5L4.5,-3M-6,1H3.5L4.5,3M-6,3H5L6,1M2,1L3,-1M2,-1L3,1",
-              plats: [-1, 1],
-            },
-            {
-              //						section_id: [81, 199, 200, 108],
-              section_id: [81, 108],
-            },
-            {
-              station_id: 951,
-              station_name: "梶が谷",
-              tracks:
-                "M-6,-1H-5L-4,-3H4L5,-1H6M-3,-3L-2,-1H2L3,-3M-3,3L-2,1H2L3,3M-6,1H-5L-4,3H4L5,1H6M2,-1L2.5,0L2,1M2.5,0H4.5M1,3L1.5,4H2",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [82, 109],
-            },
-            {
-              station_id: 952,
-              station_name: "宮崎台",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [83, 110],
-            },
-            {
-              station_id: 953,
-              station_name: "宮前平",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [84, 111],
-            },
-            {
-              station_id: 954,
-              station_name: "鷺沼",
-              tracks:
-                "M-5,-3H2L3,-1M-6,-1H6M-6,1H6M-5,3H2L3,1M-6,-1L-5,1M-4.5,-3L-3.5,-1M-4.5,-1L-3.5,-3M-4.5,3L-3.5,1M-4.5,1L-3.5,3M-3,-1L-2,1M-3,1L-2,-1",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [85, 112],
-            },
-            {
-              station_id: 955,
-              station_name: "たまプラーザ",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [86, 113],
-            },
-            {
-              station_id: 956,
-              station_name: "あざみ野",
-              tracks: "M-6,-1H6M-6,1H6M2,1L3,-1",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [87, 114],
-            },
-            {
-              station_id: 957,
-              station_name: "江田",
-              tracks:
-                "M-6,-1H-5L-4,-3H4L5,-1H6M-3,-3L-2,-1H2L3,-3M-6,1H6M-3,1L-2,3H2L3,1",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [88, 115],
-            },
-            {
-              station_id: 958,
-              station_name: "市が尾",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [89, 116],
-            },
-            {
-              station_id: 959,
-              station_name: "藤が丘",
-              tracks: "M-6,-1H6M-6,1H6M-3,1L-2,3H2L3,1",
-              plats: [-1, 2],
-            },
-            {
-              section_id: [90, 117],
-            },
-            {
-              station_id: 960,
-              station_name: "青葉台",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [91, 118],
-            },
-            {
-              station_id: 961,
-              station_name: "田奈",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [92, 119],
-            },
-            {
-              station_id: 114,
-              station_name: "長津田",
-              tracks:
-                "M-6,-1H-5L-4,-3H5L6,-1M-3,-3L-2,-1H2L3,-3M-6,1H6M-3,1L-2,3H2L3,1M2,1L2.5,0H5M2.5,-2H5M3,-2L4,0M3,0L4,-2M4,-3L4.5,-2M4,1L4.5,0M-2,3L-1.5,4M-2,4H-1M2,-3L2.5,-4M2,-4H3",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [93, 120],
-            },
-            {
-              station_id: 963,
-              station_name: "つくし野",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [94, 121],
-            },
-            {
-              station_id: 964,
-              station_name: "すずかけ台",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [95, 122],
-            },
-            {
-              station_id: 965,
-              station_name: "南町田",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [96, 123],
-            },
-            {
-              station_id: 966,
-              station_name: "つきみ野",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [97, 124],
-            },
-            {
-              station_id: 967,
-              station_name: "中央林間",
-              tracks: "M-6,-1H2M-6,1H2M-3,-1L-2,1M-3,1L-2,-1",
-              plats: [0],
-            },
-          ],
-        },
-        oimachi: {
-          uri: "oimachi",
-          line_id: 26004,
-          line_name: "大井町線",
-          sections: [
-            {
-              station_id: 494,
-              station_name: "大井町",
-              tracks: "M-2,-1H6M-2,1H6M2,1L3,-1M2,-1L3,1",
-              plats: [0],
-            },
-            {
-              section_id: [125, 142],
-            },
-            {
-              station_id: 969,
-              station_name: "下神明",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [126, 143],
-            },
-            {
-              station_id: 970,
-              station_name: "戸越公園",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [127, 144],
-            },
-            {
-              station_id: 971,
-              station_name: "中延",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [128, 145],
-            },
-            {
-              station_id: 972,
-              station_name: "荏原町",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [129, 146],
-            },
-            {
-              station_id: 973,
-              station_name: "旗の台",
-              tracks: "M-3,-1L-2,-3H2L3,-1M-6,-1H6M-6,1H6M-3,1L-2,3H2L3,1",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [130, 147],
-            },
-            {
-              station_id: 974,
-              station_name: "北千束",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [131, 148],
-            },
-            {
-              station_id: 933,
-              station_name: "大岡山",
-              tracks:
-                "M-6,-1H6M-6,1H6M-2,1L-2.5,0L-2,-1M-2.5,0H-4.5M2,-1L2.5,-2M2,-2H3M2,1L2.5,2M2,2H3",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [132, 149],
-            },
-            {
-              station_id: 976,
-              station_name: "緑が丘",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [133, 150],
-            },
-            {
-              station_id: 913,
-              station_name: "自由が丘",
-              tracks: "M-6,-1H6M-6,1H6M2,1L3,-1M2,-1L2.5,-2H3",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [134, 151],
-            },
-            {
-              station_id: 978,
-              station_name: "九品仏",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [135, 152],
-            },
-            {
-              station_id: 979,
-              station_name: "尾山台",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [136, 153],
-            },
-            {
-              station_id: 980,
-              station_name: "等々力",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [137, 154],
-            },
-            {
-              station_id: 981,
-              station_name: "上野毛",
-              tracks: "M-6,-1H6M-3,3L-2,1H2L3,3M-6,1H-5L-4,3H4L5,1H6",
-              plats: [0],
-            },
-            {
-              //						section_id: [77, 138, 155, 104],
-              section_id: [138, 155],
-            },
-            {
-              station_id: 947,
-              station_name: "二子玉川",
-              tracks:
-                "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,1L3,-1M2,-1L3,1M4,-1L5,-3M4,1L5,3M-2,3L-3,1M-2,1L-3,3",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [78, 139, 156, 105],
-            },
-            {
-              station_id: 948,
-              station_name: "二子新地",
-              tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6",
-              plats: [-2, 2],
-            },
-            {
-              section_id: [79, 140, 157, 106],
-            },
-            {
-              station_id: 949,
-              station_name: "高津",
-              tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,-3L3,-1M2,3L3,1",
-              plats: [-2, 2],
-            },
-            {
-              section_id: [80, 141, 158, 107],
-            },
-            {
-              station_id: 950,
-              station_name: "溝の口",
-              tracks:
-                "M-6,-3H5L6,-1M-6,-1H3.5L4.5,-3M-6,1H3.5L4.5,3M-6,3H5L6,1M2,1L3,-1M2,-1L3,1",
-              plats: [-1, 1],
-            },
-            {
-              //						section_id: [81, 199, 200, 108],
-              section_id: [81, 108],
-            },
-          ],
-        },
-        ikegami: {
-          uri: "iketama",
-          line_id: 26005,
-          line_name: "池上線",
-          sections: [
-            {
-              station_id: 23,
-              station_name: "五反田",
-              tracks: "M-2,-1H6M-2,1H6M2,-1L3,1M4,1L5,-1",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [159, 173],
-            },
-            {
-              station_id: 987,
-              station_name: "大崎広小路",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [160, 174],
-            },
-            {
-              station_id: 988,
-              station_name: "戸越銀座",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [161, 175],
-            },
-            {
-              station_id: 989,
-              station_name: "荏原中延",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [162, 176],
-            },
-            {
-              station_id: 973,
-              station_name: "旗の台",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [163, 177],
-            },
-            {
-              station_id: 991,
-              station_name: "長原",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [164, 178],
-            },
-            {
-              station_id: 992,
-              station_name: "洗足池",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [165, 179],
-            },
-            {
-              station_id: 993,
-              station_name: "石川台",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [166, 180],
-            },
-            {
-              station_id: 994,
-              station_name: "雪が谷大塚",
-              tracks: "M-6,-1H6M-6,1H6M2,-1L3,1M2,1L2.5,2H3M4,1L4.5,2H5",
-              plats: [0],
-            },
-            {
-              section_id: [167, 181],
-            },
-            {
-              station_id: 995,
-              station_name: "御嶽山",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [168, 182],
-            },
-            {
-              station_id: 996,
-              station_name: "久が原",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [169, 183],
-            },
-            {
-              station_id: 997,
-              station_name: "千鳥町",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [170, 184],
-            },
-            {
-              station_id: 998,
-              station_name: "池上",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [171, 185],
-            },
-            {
-              station_id: 999,
-              station_name: "蓮沼",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [172, 186],
-            },
-            {
-              station_id: 496,
-              station_name: "蒲田",
-              tracks:
-                "M-6,-1H2M-6,1H2M-3,-1L-2,1M-3,1L-2,-1M-4,1L-4.5,2M-5,2H-4",
-              plats: [-1, 0, 1],
-            },
-          ],
-        },
-        tamagawa: {
-          uri: "iketama",
-          line_id: 26006,
-          line_name: "東急多摩川線",
-          sections: [
-            {
-              station_id: 915,
-              station_name: "多摩川",
-              tracks: "M-6,-1H6M-6,1H6M2,-1L3,1M2,1L3,-1",
-              plats: [0],
-            },
-            {
-              section_id: [187, 193],
-            },
-            {
-              station_id: 1002,
-              station_name: "沼部",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [188, 194],
-            },
-            {
-              station_id: 1003,
-              station_name: "鵜の木",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [189, 195],
-            },
-            {
-              station_id: 1004,
-              station_name: "下丸子",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [190, 196],
-            },
-            {
-              station_id: 1005,
-              station_name: "武蔵新田",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [191, 197],
-            },
-            {
-              station_id: 1006,
-              station_name: "矢口渡",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [192, 198],
-            },
-            {
-              station_id: 496,
-              station_name: "蒲田",
-              tracks:
-                "M-6,-1H2M-6,1H2M-3,-1L-2.5,-2M-3,-2H-2M-5,-1L-4,1M-5,1L-4,-1",
-              plats: [-1, 0, 1],
-            },
-          ],
-        },
-		setagaya: {
-		  uri: "setagaya",
-		  line_id: 26007,
-		  line_name: "世田谷線",
-		  sections: [
+<head>
+	<meta charset="utf-8" name="robots" content="noindex,nofollow,noarchive">
+	<title>東急線在線モニタ改</title>
+	<script type="text/javascript">
+		const linedata =
+		{
+			"toyoko":
 			{
-			  station_id: 943,
-			  station_name: "三軒茶屋",
-			  tracks: "M-2,-1H6M2,-1L3,1H6",
-			  plats: [-1, 0],
+				uri: "toyoko",
+				line_id: 26001,
+				line_name: "東横線",
+				sections:
+				[
+/*					{
+						section_id: [1, 23],
+					},*/
+					{
+						station_id: 26,
+						station_name: "渋谷",
+						tracks: "M-4,-1L-3,-3H3L4,-1M-6,-1H6M-6,1H6M-4,1L-3,3H3L4,1M-3,-1L-2,1M-3,1L-2,-1M3,-1L2,1M3,1L2,-1",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [2, 24],
+					},
+					{
+						station_id: 908,
+						station_name: "代官山",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [3, 25],
+					},
+					{
+						station_id: 909,
+						station_name: "中目黒",
+						tracks: "M-6,-1H6M-6,1H6M3,1L2.5,0L3,-1M2.5,0H2",
+						plats: [0],
+					},
+					{
+						section_id: [4, 26],
+					},
+					{
+						station_id: 910,
+						station_name: "祐天寺",
+						tracks: "M-6,-1H6M-6,1H6M-3,1L-2,3H2L3,1M-3,-1L-2,1M2,1L3,-1",
+						plats: [-1, 2],
+					},
+					{
+						section_id: [5, 27],
+					},
+					{
+						station_id: 911,
+						station_name: "学芸大学",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [6, 28],
+					},
+					{
+						station_id: 912,
+						station_name: "都立大学",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [7, 29],
+					},
+					{
+						station_id: 913,
+						station_name: "自由が丘",
+						tracks: "M-3,-1L-2,-3H2L3,-1M-6,-1H5L6,-3M-6,1H5L6,3M-3,1L-2,3H2L3,1M3.5,-1L4.5,1",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [8, 52, 65, 30],
+					},
+					{
+						station_id: 914,
+						station_name: "田園調布",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M3,-3L2,-1M3,-1L2,-3M3,3L2,1M3,1L2,3M4,-1L4.5,-2H5M4,1L4.5,2H5",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [9, 53, 66, 31],
+					},
+					{
+						station_id: 915,
+						station_name: "多摩川",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [10, 54, 67, 32],
+					},
+					{
+						station_id: 916,
+						station_name: "新丸子",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [11, 55, 68, 33],
+					},
+					{
+						station_id: 57,
+						station_name: "武蔵小杉",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,-3L3,-1M2,3L3,1M4,-1L5,1M4,1L5,-1M5,3L6,-3",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [12, 56, 69, 34],
+					},
+					{
+						station_id: 918,
+						station_name: "元住吉",
+						tracks: "M-6,-3H-5L-4,-5H4L5,-3H6M-3,-5L-2,-3H2L3,-5M-6,-1H6M-6,1H6M-3,5L-2,3H2L3,5M-6,3H-5L-4,5H4L5,3H6M-4,-1L-3.5,-2H-3M-4,1L-3.5,2H-3M6,-3L5.5,-4H5",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [13, 57, 70, 35],
+					},
+					{
+						station_id: 919,
+						station_name: "日吉",
+						tracks: "M-2,-1L-3,-3M-2,1L-3,3M-6,-3H5L6,-1M-6,-1H5M-6,1H5M-6,3H5L6,1M2,-3L3,-1M2,3L3,1M4,-1L4.5,0H5M4,1L4.5,0",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [14, 36],
+					},
+					{
+						station_id: 920,
+						station_name: "綱島",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [15, 37],
+					},
+					{
+						station_id: 921,
+						station_name: "大倉山",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [16, 38],
+					},
+					{
+						station_id: 108,
+						station_name: "菊名",
+						tracks: "M-3,-1L-2,-3H2L3,-1M-6,-1H6M-6,1H-4.5L-3.5,3H5L6,1M-3,3L-2,1H2L3,3M-6,-1L-5,1M-6,1L-5,-1M2,1H5M2,-1L3,1",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [17, 39],
+					},
+					{
+						station_id: 923,
+						station_name: "妙蓮寺",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [18, 40],
+					},
+					{
+						station_id: 924,
+						station_name: "白楽",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [19, 41],
+					},
+					{
+						station_id: 925,
+						station_name: "東白楽",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [20, 42],
+					},
+					{
+						station_id: 926,
+						station_name: "反町",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [21, 43],
+					},
+					{
+						station_id: 5,
+						station_name: "横浜",
+						tracks: "M-6,-1H6M-6,1H6M-3,-1L-2,1M-3,1L-2,-1",
+						plats: [0],
+					},
+					{
+						section_id: [71, 44],
+					},
+					{
+						station_id: 927,
+						station_name: "新高島",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [72, 45],
+					},
+					{
+						station_id: 928,
+						station_name: "みなとみらい",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [73, 46],
+					},
+					{
+						station_id: 929,
+						station_name: "馬車道",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [74, 47],
+					},
+					{
+						station_id: 930,
+						station_name: "日本大通り",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [75, 48],
+					},
+					{
+						station_id: 931,
+						station_name: "元町中華街",
+						tracks: "M-6,-1H6M-6,1H6M-3,-1L-2,1M-3,1L-2,-1",
+						plats: [0],
+					}
+/*					{
+						section_id: [22, 44],
+					},*/
+				],
 			},
+			"meguro":
 			{
-			  section_id: [210, 201],
+				uri: "meguro",
+				line_id: 26002,
+				line_name: "目黒線",
+				sections:
+				[
+/*					{
+						section_id: [45, 58],
+					},*/
+					{
+						station_id: 24,
+						station_name: "目黒",
+						tracks: "M-6,-1H6M-6,1H6M3,-1L2,1M3,1L2,-1",
+						plats: [0],
+					},
+					{
+						section_id: [46, 59],
+					},
+					{
+						station_id: 929,
+						station_name: "不動前",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [47, 60],
+					},
+					{
+						station_id: 930,
+						station_name: "武蔵小山",
+						tracks: "M-3,-1L-2,-3H2L3,-1M-6,-1H6M-6,1H6M-3,1L-2,3H2L3,1",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [48, 61],
+					},
+					{
+						station_id: 931,
+						station_name: "西小山",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [49, 62],
+					},
+					{
+						station_id: 932,
+						station_name: "洗足",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [50, 63],
+					},
+					{
+						station_id: 933,
+						station_name: "大岡山",
+						tracks: "M-6,-1H6M-6,1H6M3,1L2.5,0L3,-1M2.5,0H2",
+						plats: [0],
+					},
+					{
+						section_id: [51, 64],
+					},
+					{
+						station_id: 934,
+						station_name: "奥沢",
+						tracks: "M-6,-1H6M-6,1H6M-6,-1L-5,1M-3,1L-2,3L2,3L3,1M-4,1L-3,3",
+						plats: [-1, 2],
+					},
+					{
+						section_id: [8, 52, 65, 30],
+					},
+					{
+						station_id: 914,
+						station_name: "田園調布",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M3,-3L2,-1M3,-1L2,-3M3,3L2,1M3,1L2,3M4,-1L4.5,-2H5M4,1L4.5,2H5",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [9, 53, 66, 31],
+					},
+					{
+						station_id: 915,
+						station_name: "多摩川",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [10, 54, 67, 32],
+					},
+					{
+						station_id: 916,
+						station_name: "新丸子",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [11, 55, 68, 33],
+					},
+					{
+						station_id: 57,
+						station_name: "武蔵小杉",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,-3L3,-1M2,3L3,1M4,-1L5,1M4,1L5,-1M5,3L6,-3",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [12, 56, 69, 34],
+					},
+					{
+						station_id: 918,
+						station_name: "元住吉",
+						tracks: "M-6,-3H-5L-4,-5H4L5,-3H6M-3,-5L-2,-3H2L3,-5M-6,-1H6M-6,1H6M-3,5L-2,3H2L3,5M-6,3H-5L-4,5H4L5,3H6M-4,-1L-3.5,-2H-3M-4,1L-3.5,2H-3M6,-3L5.5,-4H5",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [13, 57, 70, 35],
+					},
+					{
+						station_id: 919,
+						station_name: "日吉",
+						tracks: "M-2,-1L-3,-3M-2,1L-3,3M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,-3L3,-1M2,3L3,1M4,-1L4.5,0H5M4,1L4.5,0",
+						plats: [-1, 1],
+					},
+				],
 			},
+			"dento":
 			{
-			  station_id: 1009,
-			  station_name: "西太子堂",
-			  tracks: "M-6,-1H6M-6,1H6",
-			  plats: [-1, 1],
+				uri: "dento",
+				line_id: 26003,
+				line_name: "田園都市線",
+				sections:
+				[
+/*					{
+						section_id: [71, 98],
+					},*/
+					{
+						station_id: 26,
+						station_name: "渋谷",
+						tracks: "M-6,-1H6M-6,1H6M-3,-1L-2,1M-3,1L-2,-1M2,1L3,-1",
+						plats: [0],
+					},
+					{
+						section_id: [72, 99],
+					},
+					{
+						station_id: 942,
+						station_name: "池尻大橋",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [73, 100],
+					},
+					{
+						station_id: 943,
+						station_name: "三軒茶屋",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [74, 101],
+					},
+					{
+						station_id: 944,
+						station_name: "駒沢大学",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [75, 102],
+					},
+					{
+						station_id: 945,
+						station_name: "桜新町",
+						tracks: "M-6,-1H-5L-4,-3H4L5,-1H6M-3,-3L-2,-1H2L3,-3M-6,1H6M-3,1L-2,3H2L3,1",
+						plats: [0, 2],
+					},
+					{
+						section_id: [76, 103],
+					},
+					{
+						station_id: 946,
+						station_name: "用賀",
+						tracks: "M-6,-1H5L6,-3M-6,1H5L6,3M2,1L3,-1",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [77, 138, 155, 104],
+					},
+					{
+						station_id: 947,
+						station_name: "二子玉川",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,1L3,-1M2,-1L3,1M4,-1L5,-3M4,1L5,3M-2,3L-3,1M-2,1L-3,3",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [78, 139, 156, 105],
+					},
+					{
+						station_id: 948,
+						station_name: "二子新地",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6",
+						plats: [-2, 2],
+					},
+					{
+						section_id: [79, 140, 157, 106],
+					},
+					{
+						station_id: 949,
+						station_name: "高津",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,-3L3,-1M2,3L3,1",
+						plats: [-2, 2],
+					},
+					{
+						section_id: [80, 141, 158, 107],
+					},
+					{
+						station_id: 950,
+						station_name: "溝の口",
+						tracks: "M-6,-3H5L6,-1M-6,-1H3.5L4.5,-3M-6,1H3.5L4.5,3M-6,3H5L6,1M2,1L3,-1M2,-1L3,1",
+						plats: [-1, 1],
+					},
+					{
+//						section_id: [81, 199, 200, 108],
+						section_id: [81, 108],
+					},
+					{
+						station_id: 951,
+						station_name: "梶が谷",
+						tracks: "M-6,-1H-5L-4,-3H4L5,-1H6M-3,-3L-2,-1H2L3,-3M-3,3L-2,1H2L3,3M-6,1H-5L-4,3H4L5,1H6M2,-1L2.5,0L2,1M2.5,0H4.5M1,3L1.5,4H2",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [82, 109],
+					},
+					{
+						station_id: 952,
+						station_name: "宮崎台",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [83, 110],
+					},
+					{
+						station_id: 953,
+						station_name: "宮前平",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [84, 111],
+					},
+					{
+						station_id: 954,
+						station_name: "鷺沼",
+						tracks: "M-5,-3H2L3,-1M-6,-1H6M-6,1H6M-5,3H2L3,1M-6,-1L-5,1M-4.5,-3L-3.5,-1M-4.5,-1L-3.5,-3M-4.5,3L-3.5,1M-4.5,1L-3.5,3M-3,-1L-2,1M-3,1L-2,-1",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [85, 112],
+					},
+					{
+						station_id: 955,
+						station_name: "たまプラーザ",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [86, 113],
+					},
+					{
+						station_id: 956,
+						station_name: "あざみ野",
+						tracks: "M-6,-1H6M-6,1H6M2,1L3,-1",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [87, 114],
+					},
+					{
+						station_id: 957,
+						station_name: "江田",
+						tracks: "M-6,-1H-5L-4,-3H4L5,-1H6M-3,-3L-2,-1H2L3,-3M-6,1H6M-3,1L-2,3H2L3,1",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [88, 115],
+					},
+					{
+						station_id: 958,
+						station_name: "市が尾",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [89, 116],
+					},
+					{
+						station_id: 959,
+						station_name: "藤が丘",
+						tracks: "M-6,-1H6M-6,1H6M-3,1L-2,3H2L3,1",
+						plats: [-1, 2],
+					},
+					{
+						section_id: [90, 117],
+					},
+					{
+						station_id: 960,
+						station_name: "青葉台",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [91, 118],
+					},
+					{
+						station_id: 961,
+						station_name: "田奈",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [92, 119],
+					},
+					{
+						station_id: 114,
+						station_name: "長津田",
+						tracks: "M-6,-1H-5L-4,-3H5L6,-1M-3,-3L-2,-1H2L3,-3M-6,1H6M-3,1L-2,3H2L3,1M2,1L2.5,0H5M2.5,-2H5M3,-2L4,0M3,0L4,-2M4,-3L4.5,-2M4,1L4.5,0M-2,3L-1.5,4M-2,4H-1M2,-3L2.5,-4M2,-4H3",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [93, 120],
+					},
+					{
+						station_id: 963,
+						station_name: "つくし野",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [94, 121],
+					},
+					{
+						station_id: 964,
+						station_name: "すずかけ台",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [95, 122],
+					},
+					{
+						station_id: 965,
+						station_name: "南町田",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [96, 123],
+					},
+					{
+						station_id: 966,
+						station_name: "つきみ野",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [97, 124],
+					},
+					{
+						station_id: 967,
+						station_name: "中央林間",
+						tracks: "M-6,-1H2M-6,1H2M-3,-1L-2,1M-3,1L-2,-1",
+						plats: [0],
+					},
+				],
 			},
+			"oimachi":
 			{
-			  section_id: [211, 202],
+				uri: "oimachi",
+				line_id: 26004,
+				line_name: "大井町線",
+				sections:
+				[
+					{
+						station_id: 494,
+						station_name: "大井町",
+						tracks: "M-2,-1H6M-2,1H6M2,1L3,-1M2,-1L3,1",
+						plats: [0],
+					},
+					{
+						section_id: [125, 142],
+					},
+					{
+						station_id: 969,
+						station_name: "下神明",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [126, 143],
+					},
+					{
+						station_id: 970,
+						station_name: "戸越公園",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [127, 144],
+					},
+					{
+						station_id: 971,
+						station_name: "中延",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [128, 145],
+					},
+					{
+						station_id: 972,
+						station_name: "荏原町",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [129, 146],
+					},
+					{
+						station_id: 973,
+						station_name: "旗の台",
+						tracks: "M-3,-1L-2,-3H2L3,-1M-6,-1H6M-6,1H6M-3,1L-2,3H2L3,1",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [130, 147],
+					},
+					{
+						station_id: 974,
+						station_name: "北千束",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [131, 148],
+					},
+					{
+						station_id: 933,
+						station_name: "大岡山",
+						tracks: "M-6,-1H6M-6,1H6M-2,1L-2.5,0L-2,-1M-2.5,0H-4.5M2,-1L2.5,-2M2,-2H3M2,1L2.5,2M2,2H3",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [132, 149],
+					},
+					{
+						station_id: 976,
+						station_name: "緑が丘",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [133, 150],
+					},
+					{
+						station_id: 913,
+						station_name: "自由が丘",
+						tracks: "M-6,-1H6M-6,1H6M2,1L3,-1M2,-1L2.5,-2H3",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [134, 151],
+					},
+					{
+						station_id: 978,
+						station_name: "九品仏",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [135, 152],
+					},
+					{
+						station_id: 979,
+						station_name: "尾山台",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [136, 153],
+					},
+					{
+						station_id: 980,
+						station_name: "等々力",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [137, 154],
+					},
+					{
+						station_id: 981,
+						station_name: "上野毛",
+						tracks: "M-6,-1H6M-3,3L-2,1H2L3,3M-6,1H-5L-4,3H4L5,1H6",
+						plats: [0],
+					},
+					{
+//						section_id: [77, 138, 155, 104],
+						section_id: [138, 155],
+					},
+					{
+						station_id: 947,
+						station_name: "二子玉川",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,1L3,-1M2,-1L3,1M4,-1L5,-3M4,1L5,3M-2,3L-3,1M-2,1L-3,3",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [78, 139, 156, 105],
+					},
+					{
+						station_id: 948,
+						station_name: "二子新地",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6",
+						plats: [-2, 2],
+					},
+					{
+						section_id: [79, 140, 157, 106],
+					},
+					{
+						station_id: 949,
+						station_name: "高津",
+						tracks: "M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,-3L3,-1M2,3L3,1",
+						plats: [-2, 2],
+					},
+					{
+						section_id: [80, 141, 158, 107],
+					},
+					{
+						station_id: 950,
+						station_name: "溝の口",
+						tracks: "M-6,-3H5L6,-1M-6,-1H3.5L4.5,-3M-6,1H3.5L4.5,3M-6,3H5L6,1M2,1L3,-1M2,-1L3,1",
+						plats: [-1, 1],
+					},
+					{
+//						section_id: [81, 199, 200, 108],
+						section_id: [81, 108],
+					},
+				],
 			},
+			"ikegami":
 			{
-			  station_id: 1010,
-			  station_name: "若林",
-			  tracks: "M-6,-1H6M-6,1H6",
-			  plats: [-1, 1],
+				uri: "iketama",
+				line_id: 26005,
+				line_name: "池上線",
+				sections:
+				[
+					{
+						station_id: 23,
+						station_name: "五反田",
+						tracks: "M-2,-1H6M-2,1H6M2,-1L3,1M4,1L5,-1",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [159, 173],
+					},
+					{
+						station_id: 987,
+						station_name: "大崎広小路",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [160, 174],
+					},
+					{
+						station_id: 988,
+						station_name: "戸越銀座",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [161, 175],
+					},
+					{
+						station_id: 989,
+						station_name: "荏原中延",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [162, 176],
+					},
+					{
+						station_id: 973,
+						station_name: "旗の台",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [163, 177],
+					},
+					{
+						station_id: 991,
+						station_name: "長原",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [164, 178],
+					},
+					{
+						station_id: 992,
+						station_name: "洗足池",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [165, 179],
+					},
+					{
+						station_id: 993,
+						station_name: "石川台",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [166, 180],
+					},
+					{
+						station_id: 994,
+						station_name: "雪が谷大塚",
+						tracks: "M-6,-1H6M-6,1H6M2,-1L3,1M2,1L2.5,2H3M4,1L4.5,2H5",
+						plats: [0],
+					},
+					{
+						section_id: [167, 181],
+					},
+					{
+						station_id: 995,
+						station_name: "御嶽山",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [168, 182],
+					},
+					{
+						station_id: 996,
+						station_name: "久が原",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [169, 183],
+					},
+					{
+						station_id: 997,
+						station_name: "千鳥町",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [170, 184],
+					},
+					{
+						station_id: 998,
+						station_name: "池上",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [171, 185],
+					},
+					{
+						station_id: 999,
+						station_name: "蓮沼",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [172, 186],
+					},
+					{
+						station_id: 496,
+						station_name: "蒲田",
+						tracks: "M-6,-1H2M-6,1H2M-3,-1L-2,1M-3,1L-2,-1M-4,1L-4.5,2M-5,2H-4",
+						plats: [-1, 0, 1],
+					},
+				],
 			},
+			"tamagawa":
 			{
-			  section_id: [212, 203],
+				uri: "iketama",
+				line_id: 26006,
+				line_name: "東急多摩川線",
+				sections:
+				[
+					{
+						station_id: 915,
+						station_name: "多摩川",
+						tracks: "M-6,-1H6M-6,1H6M2,-1L3,1M2,1L3,-1",
+						plats: [0],
+					},
+					{
+						section_id: [187, 193],
+					},
+					{
+						station_id: 1002,
+						station_name: "沼部",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [188, 194],
+					},
+					{
+						station_id: 1003,
+						station_name: "鵜の木",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [189, 195],
+					},
+					{
+						station_id: 1004,
+						station_name: "下丸子",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [190, 196],
+					},
+					{
+						station_id: 1005,
+						station_name: "武蔵新田",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [191, 197],
+					},
+					{
+						station_id: 1006,
+						station_name: "矢口渡",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [192, 198],
+					},
+					{
+						station_id: 496,
+						station_name: "蒲田",
+						tracks: "M-6,-1H2M-6,1H2M-3,-1L-2.5,-2M-3,-2H-2M-5,-1L-4,1M-5,1L-4,-1",
+						plats: [-1, 0, 1],
+					},
+				],
 			},
+
+			/* 世田谷線表示は無効にしています。 */
+
+			
+			"setagaya":
 			{
-			  station_id: 1011,
-			  station_name: "松陰神社前",
-			  tracks: "M-6,-1H6M-6,1H6",
-			  plats: [-1, 1],
+				uri: "setagaya",
+				line_id: 26007,
+				line_name: "世田谷線",
+				sections:
+				[
+					{
+						station_id: 943,
+						station_name: "三軒茶屋",
+						tracks: "M-2,-1H6M2,-1L3,1H6",
+						plats: [-1, 0],
+					},
+					{
+						section_id: [210, 201],
+					},
+					{
+						station_id: 1009,
+						station_name: "西太子堂",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [211, 202],
+					},
+					{
+						station_id: 1010,
+						station_name: "若林",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [212, 203],
+					},
+					{
+						station_id: 1011,
+						station_name: "松陰神社前",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [213, 204],
+					},
+					{
+						station_id: 1012,
+						station_name: "世田谷",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [214, 205],
+					},
+					{
+						station_id: 1013,
+						station_name: "上町",
+						tracks: "M-6,-1H6M-6,1H6M4.5,-1L3.5,1M5,-1L5.5,-2H6M4,-1L3.5,-2H3M3,-1L2.5,-2H2",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [215, 206],
+					},
+					{
+						station_id: 1014,
+						station_name: "宮の坂",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [216, 207],
+					},
+					{
+						station_id: 1015,
+						station_name: "山下",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [217, 208],
+					},
+					{
+						station_id: 1016,
+						station_name: "松原",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [218, 209],
+					},
+					{
+						station_id: 784,
+						station_name: "下高井戸",
+						tracks: "M-6,-1H-3L-2,1M-6,1H2",
+						plats: [0, 1],
+					},
+				],
 			},
+
+
+
+
+			"shinyokohama":
 			{
-			  section_id: [213, 204],
+				uri: "shinyokohama",
+				line_id: 26009,
+				line_name: "東急新横浜線",
+				sections:
+				[
+					{
+						station_id: 919,
+						station_name: "日吉",
+						tracks: "M-2,-1L-3,-3M-2,1L-3,3M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,-3L3,-1M2,3L3,1M4,-1L4.5,0H5M4,1L4.5,0",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [263, 265],
+					},
+					{
+						station_id: 982,
+						station_name: "新綱島",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [264, 266],
+					},
+					{
+						station_id: 983,
+						station_name: "新横浜",
+						tracks: "M-5,-1L-4,1M-5,1L-4,-1M-2,1L-3,-1M-2,3L-3,1M-6,-1H6M-6,1H6M-2,3H2M2,1L3,-1M2,3L3,1M4,1L5,-1",
+						plats: [0, 1],
+					},
+				],
 			},
+			/* "minatomirai":
 			{
-			  station_id: 1012,
-			  station_name: "世田谷",
-			  tracks: "M-6,-1H6M-6,1H6",
-			  plats: [-1, 1],
-			},
+				uri: "minatomirai",
+				line_id: 26010,
+				line_name: "みなとみらい線",
+				sections:
+				[
+					{
+						station_id: 5,
+						station_name: "横浜",
+						tracks: "M-6,-1H6M-6,1H6M-3,-1L-2,1M-3,1L-2,-1",
+						plats: [0],
+					},
+					{
+						section_id: [71, 44],
+					},
+					{
+						station_id: 927,
+						station_name: "新高島",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [-1, 1],
+					},
+					{
+						section_id: [72, 45],
+					},
+					{
+						station_id: 928,
+						station_name: "みなとみらい",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [73, 46],
+					},
+					{
+						station_id: 929,
+						station_name: "馬車道",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [74, 47],
+					},
+					{
+						station_id: 930,
+						station_name: "日本大通り",
+						tracks: "M-6,-1H6M-6,1H6",
+						plats: [0],
+					},
+					{
+						section_id: [75, 48],
+					},
+					{
+						station_id: 931,
+						station_name: "元町中華街",
+						tracks: "M-6,-1H6M-6,1H6M-3,-1L-2,1M-3,1L-2,-1",
+						plats: [0],
+					}
+				]
+			} */
+		};
+		const train_kind_disp = {
+			"null": "null",
+			"普2": "<span style=\"color:blue;\">各停</span>",
+			"Ｓ3": "<span style=\"color:limegreen; font-weight:bold;\">ST</span>",
+			"急4": "<span style=\"color:red; font-weight:bold;\">急行</span>",
+			"特5": "<span style=\"color:darkorange; font-weight:bold;\">特急</span>",
+			"回6": "</span><span style=\"color:white; background:red;\">回送</span>",
+			"Ｆ7": "<span style=\"color:darkorange; font-weight:bold;\">F特</span>",
+			"Ｇ8": "<span style=\"color:limegreen;\">G各</span>",
+			"準10": "<span style=\"color:forestgreen;\">準急</span>",
+			"通11": "<span style=\"color:orangered; font-weight:bold;\">通特</span>",
+		}
+		const destination_name_tymg =
+		{
+			0: "0",
+			33: "<span style=\"color:saddlebrown;\">F線直通</span>",
+			54: "<span style=\"color:dodgerblue;\">I線直通</span>",
+			67: "<span style=\"color:lightseagreen;\">N線直通</span>",
+			71: "目黒",
+            72: "不動前", //※
+			73: "武蔵小山",
+            74: "西小山", //※
+            75: "洗足", //※
+            76: "大岡山", //※
+			77: "奥沢",
+			78: "渋谷",
+            79: "代官山", //※
+            80: "中目黒", //※
+            81: "祐天寺", //※
+            82: "学芸大学", //※
+            83: "都立大学", //※
+			84: "自由が丘",
+            85: "田園調布", //※
+            86: "多摩川", //※
+            87: "新丸子", //※
+			88: "武蔵小杉",
+			89: "元住吉",
+			90: "日吉",
+            91: "綱島", //※
+            92: "大倉山", //※
+			93: "菊名",
+            94: "妙蓮寺", //※
+            95: "白楽", //※
+            96: "東白楽", //※
+            97: "反町", //※
+			98: "横浜",
+            99: "新高島", //※
+            100: "みなとみら", //※
+            101: "馬車道", //※
+            102: "日本大通り", //※
+			103: "元町中華街",
+			108: "新横浜",
+			111: "<span style=\"color:navy;\">SO線直通</span>",
+		}
+		const destination_name_dtom =
+		{
+			0: "0",
+			45: "<span style=\"color:mediumpurple;\">Z線直通</span>",
+			51: "大井町",
+			52: "下神明", //※
+			53: "戸越公園", //※
+			54: "中延", //※
+			55: "荏原町", //※
+			56: "旗の台", //※
+			57: "北千束", //※
+			58: "大岡山",
+			59: "緑が丘", //※
+			60: "自由が丘",
+			61: "九品仏", //※
+			62: "尾山台", //※
+			63: "等々力", //※
+			64: "上野毛", //※
+			65: "渋谷",
+			66: "池尻大橋", //※
+			67: "三軒茶屋", //※
+			68: "駒沢大学", //※
+			69: "桜新町", //※
+			70: "用賀", //※
+			71: "二子玉川",
+			72: "二子新地", //※
+			73: "高津", //※
+			74: "溝の口",
+			75: "梶が谷",
+			76: "宮崎台", //※
+			77: "宮前平", //※
+			78: "鷺沼",
+			79: "たまプラ", //※
+			80: "あざみ野", //※
+			81: "江田", //※
+			82: "市が尾", //※
+			83: "藤が丘", //※
+			84: "青葉台", //※
+			85: "田奈", //※
+			86: "長津田",
+			87: "つくし野", //※
+			88: "すずかけ台", //※
+			89: "南町田", //※
+			90: "つきみ野", //※
+			91: "中央林間",
+			96: "こどもの国",
+		}
+
+		function createSVG(tag)
+		{
+			return document.createElementNS("http://www.w3.org/2000/svg", tag);
+		}
+
+		var opchar = {0: "K", 1: "M", 2: "K", 3: "S", 4: "T", 5: "M", 6: "G", 7: "S", 8: "T", 9: "G"};
+		function opno(no, line)
+		{
+			if (line == 26005 || line == 26006)
+				return ("00" + no).slice(-2);
+			if (typeof no != "number")
+				return no;
+			if (no == 999)
+				return no;
+			if (line == null || line == 26001 || line == 26002 || line == 26009 || line == 26010)
+				if ((no / 100 | 0) in opchar)
+					return ("00" + no).slice(-2) + opchar[no / 100 | 0];
+			if (line == 26003 && no < 100)
+				return ("00" + no).slice(-2) + (no < 50 ? "K" : no % 2 == 0 ? "T" : "S");
+			return ("00" + no).slice(no < 10 ? -1 : no < 100 ? -2 : -3);
+		}
+
+		var curline;
+		function init()
+		{
+			curline = location.search;
+			if (curline.length > 0)
+				curline = curline.substr(1);
+
+			var sel = document.getElementById("sel");
+			Object.keys(linedata).forEach(function (o, i, a)
 			{
-			  section_id: [214, 205],
-			},
+				var btn = document.createElement("button");
+				btn.className = "line" + linedata[o].line_id;
+				btn.addEventListener("click", function () { trans(o); });
+				btn.innerHTML = linedata[o].line_name;
+				if (o == curline)
+					btn.disabled = true;
+				sel.appendChild(btn);
+			});
+
+			if (!curline in linedata)
+				return;
+
+			var main = document.getElementById("main");
+			linedata[curline].sections.forEach(function (o, i, a)
 			{
-			  station_id: 1013,
-			  station_name: "上町",
-			  tracks: "M-6,-1H6M-6,1H6M4.5,-1L3.5,1M5,-1L5.5,-2H6M4,-1L3.5,-2H3M3,-1L2.5,-2H2",
-			  plats: [-1, 1],
-			},
+				var sec = document.createElement("div");
+				sec.style.height = "192px";
+				sec.style.cssFloat = "left";
+				sec.style.position = "relative";
+				var svg = createSVG("svg");
+				svg.setAttribute("height", "192px");
+				if ('station_id' in o)
+				{
+
+					if ("plats" in o)
+					{
+						o.plats.forEach(function (p, i, a)
+						{
+							var plat = createSVG("rect");
+							plat.setAttribute("x", -31.5);
+							plat.setAttribute("y", p * 32 - 9.5);
+							plat.setAttribute("width", 63);
+							plat.setAttribute("height", 19);
+							plat.setAttribute("stroke", "white");
+							plat.setAttribute("fill", "deepskyblue");
+							plat.setAttribute("stroke-width", 1);
+							svg.appendChild(plat);
+						});
+					}
+					sec.style.width = "192px";
+					svg.setAttribute("width", "192px");
+					svg.setAttribute("viewBox", "-96 -96 192 192");
+
+					var text = createSVG("text");
+					text.setAttribute("x", 0);
+					text.setAttribute("y", 6);
+					text.setAttribute("font-size", 16);
+					text.setAttribute("font-weight", "bold");
+					text.setAttribute("text-anchor", "middle");
+					text.setAttribute("fill", "white");
+					text.innerHTML = o.station_name;
+					svg.appendChild(text);
+
+					if ("tracks" in o)
+					{
+						var track = createSVG("path");
+						track.setAttribute("d", o.tracks);
+						track.setAttribute("stroke", "white");
+						track.setAttribute("stroke-width", 0.125);
+						track.setAttribute("fill", "none");
+						track.setAttribute("transform", "scale(16)");
+						svg.appendChild(track);
+					}
+
+					for (var i = -3; i <= 3; ++i)
+					{
+						if (i == 0)
+							continue;
+						var canv = document.createElement("div");
+						canv.id = "sta" + o.station_id + "p" + i;
+						canv.className = "section";
+						canv.style.top = i * 32 + (i < 0 ? 64 : 32) + 48 + "px";
+						canv.style.left = "64px";
+						sec.appendChild(canv);
+					}
+				}
+				if ('section_id' in o)
+				{
+					sec.style.width = "64px";
+					svg.setAttribute("width", "64px");
+					svg.setAttribute("viewBox", "-32 -96 64 192");
+
+					o.section_id.forEach(function (s, i, a)
+					{
+						if (s == -1)
+							return;
+
+						var line = createSVG("line");
+						line.setAttribute("x1", -64);
+						line.setAttribute("y1", (i - a.length / 2) * -32 - 16);
+						line.setAttribute("x2", 64);
+						line.setAttribute("y2", (i - a.length / 2) * -32 - 16);
+						line.setAttribute("stroke", "white");
+						line.setAttribute("stroke-width", 2);
+						svg.appendChild(line);
+
+						var canv = document.createElement("div");
+						canv.id = "sec" + s;
+						canv.className = "section";
+						canv.style.top = ((i - a.length / 2) * -32 + 32) + 48 + "px";
+						canv.style.left = "0";
+						sec.appendChild(canv);
+					});
+				}
+				sec.insertBefore(svg, sec.firstChild);
+				main.appendChild(sec);
+			});
+
+			update();
+			setInterval(update, 5000);
+		}
+
+		var request = null;
+		function update()
+		{
+			if (request != null)
+				return;
+
+			request = new XMLHttpRequest();
+			request.open("GET", "https://w-tid.jp/tokyu/" + linedata[curline].uri + ".json", true);
+			request.onreadystatechange = function ()
 			{
-		 	  section_id: [215, 206],
-			},
-			{
-			  station_id: 1014,
-			  station_name: "宮の坂",
-			  tracks: "M-6,-1H6M-6,1H6",
-			  plats: [-1, 1],
-			},
-			{
-			  section_id: [216, 207],
-			},
-			{
-			  station_id: 1015,
-			  station_name: "山下",
-			  tracks: "M-6,-1H6M-6,1H6",
-			  plats: [-1, 1],
-			},
-			{
-			  section_id: [217, 208],
-			},
-			{
-			  station_id: 1016,
-			  station_name: "松原",
-			  tracks: "M-6,-1H6M-6,1H6",
-			  plats: [-1, 1],
-			},
-			{
-			  section_id: [218, 209],
-			},
-			{
-			  station_id: 784,
-			  station_name: "下高井戸",
-			  tracks: "M-6,-1H-3L-2,1M-6,1H2",
-			  plats: [0, 1],
-			},
-		  ],
-		},
-        shinyokohama: {
-          uri: "shinyokohama",
-          line_id: 26009,
-          line_name: "東急新横浜線",
-          sections: [
-            {
-              station_id: 919,
-              station_name: "日吉",
-              tracks:
-                "M-2,-1L-3,-3M-2,1L-3,3M-6,-3H6M-6,-1H6M-6,1H6M-6,3H6M2,-3L3,-1M2,3L3,1M4,-1L4.5,0H5M4,1L4.5,0",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [263, 265],
-            },
-            {
-              station_id: 982,
-              station_name: "新綱島",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [264, 266],
-            },
-            {
-              station_id: 983,
-              station_name: "新横浜",
-              tracks:
-                "M-5,-1L-4,1M-5,1L-4,-1M-2,1L-3,-1M-2,3L-3,1M-6,-1H6M-6,1H6M-2,3H2M2,1L3,-1M2,3L3,1M4,1L5,-1",
-              plats: [0, 1],
-            },
-          ],
-        },
-        minatomirai: {
-          uri: "minatomirai",
-          line_id: 26010,
-          line_name: "みなとみらい線",
-          sections: [
-            {
-              station_id: 5,
-              station_name: "横浜",
-              tracks: "M-6,-1H6M-6,1H6M-3,-1L-2,1M-3,1L-2,-1",
-              plats: [0],
-            },
-            {
-              section_id: [71, 44],
-            },
-            {
-              station_id: 927,
-              station_name: "新高島",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [-1, 1],
-            },
-            {
-              section_id: [72, 45],
-            },
-            {
-              station_id: 928,
-              station_name: "みなとみらい",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [73, 46],
-            },
-            {
-              station_id: 929,
-              station_name: "馬車道",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [74, 47],
-            },
-            {
-              station_id: 930,
-              station_name: "日本大通り",
-              tracks: "M-6,-1H6M-6,1H6",
-              plats: [0],
-            },
-            {
-              section_id: [75, 48],
-            },
-            {
-              station_id: 931,
-              station_name: "元町中華街",
-              tracks: "M-6,-1H6M-6,1H6M-3,-1L-2,1M-3,1L-2,-1",
-              plats: [0],
-            },
-          ],
-        },
-      };
-      const train_kind_disp = {
-        null: "null",
-        普2: '<span style="color:blue;">各停</span>',
-        Ｓ3: '<span style="color:limegreen; font-weight:bold;">ST</span>',
-        急4: '<span style="color:red; font-weight:bold;">急行</span>',
-        特5: '<span style="color:darkorange; font-weight:bold;">特急</span>',
-        回6: '</span><span style="color:white; background:red;">回送</span>',
-        Ｆ7: '<span style="color:darkorange; font-weight:bold;">F特</span>',
-        Ｇ8: '<span style="color:limegreen;">G各</span>',
-        準10: '<span style="color:forestgreen;">準急</span>',
-        通11: '<span style="color:orangered; font-weight:bold;">通特</span>',
-      };
-      const destination_name_tymg = {
-        0: "0",
-        33: '<span style="color:saddlebrown;">F線直通</span>',
-		42: '<span style="color:silver;">H線直通</span>',
-        54: '<span style="color:dodgerblue;">I線直通</span>',
-        67: '<span style="color:lightseagreen;">N線直通</span>',
-        71: "目黒",
-        72: "不動前", //※
-        73: "武蔵小山",
-        74: "西小山", //※
-        75: "洗足", //※
-        76: "大岡山", //※
-        77: "奥沢",
-        78: "渋谷",
-        79: "代官山", //※
-        80: "中目黒", //※
-        81: "祐天寺", //※
-        82: "学芸大学", //※
-        83: "都立大学", //※
-        84: "自由が丘",
-        85: "田園調布", //※
-        86: "多摩川", //※
-        87: "新丸子", //※
-        88: "武蔵小杉",
-        89: "元住吉",
-        90: "日吉",
-        91: "綱島", //※
-        92: "大倉山", //※
-        93: "菊名",
-        94: "妙蓮寺", //※
-        95: "白楽", //※
-        96: "東白楽", //※
-        97: "反町", //※
-        98: "横浜",
-        99: "新高島", //※
-        100: "みなとみら", //※
-        101: "馬車道", //※
-        102: "日本大通り", //※
-        103: "元町中華街",
-        108: "新横浜",
-        111: '<span style="color:navy;">SO線直通</span>',
-        129: "多摩川",
-      };
-      const destination_name_dtom = {
-        0: "0",
-        45: '<span style="color:mediumpurple;">Z線直通</span>',
-        51: "大井町",
-        52: "下神明", //※
-        53: "戸越公園", //※
-        54: "中延", //※
-        55: "荏原町", //※
-        56: "旗の台", //※
-        57: "北千束", //※
-        58: "大岡山",
-        59: "緑が丘", //※
-        60: "自由が丘",
-        61: "九品仏", //※
-        62: "尾山台", //※
-        63: "等々力", //※
-        64: "上野毛", //※
-        65: "渋谷",
-        66: "池尻大橋", //※
-        67: "三軒茶屋", //※
-        68: "駒沢大学", //※
-        69: "桜新町", //※
-        70: "用賀", //※
-        71: "二子玉川",
-        72: "二子新地", //※
-        73: "高津", //※
-        74: "溝の口",
-        75: "梶が谷",
-        76: "宮崎台", //※
-        77: "宮前平", //※
-        78: "鷺沼",
-        79: "たまプラ", //※
-        80: "あざみ野", //※
-        81: "江田", //※
-        82: "市が尾", //※
-        83: "藤が丘", //※
-        84: "青葉台", //※
-        85: "田奈", //※
-        86: "長津田",
-        87: "つくし野", //※
-        88: "すずかけ台", //※
-        89: "南町田", //※
-        90: "つきみ野", //※
-        91: "中央林間",
-        95: "恩田",
-        96: "こどもの国",
-        135: '<span style="color:dodgerblue;">M線直通</span>',
-      };
+				if (request.readyState != 4 || request.status != 200)
+					return;
+				var res = JSON.parse(request.responseText);
 
-      function createSVG(tag) {
-        return document.createElementNS("http://www.w3.org/2000/svg", tag);
-      }
+				linedata[curline].sections.forEach(function (o, i, a)
+				{
+				    if ('station_id' in o)
+				    {
+				    	for (var i = -3; i <= 3; ++i)
+				    	{
+				    		if (i == 0)
+				    			continue;
+				    		var elem = document.getElementById("sta" + o.station_id + "p" + i);
+				    		while (elem.lastChild)
+				    			elem.removeChild(elem.lastChild);
+				    	}
+				    }
+				    if ('section_id' in o)
+				    {
+				    	o.section_id.forEach(function (s, i, a)
+				    	{
+				    		if (s == -1)
+				    			return;
 
-      var opchar = {
-        0: "K",
-        1: "M",
-        2: "K",
-        3: "S",
-        4: "T",
-        5: "M",
-        6: "G",
-        7: "S",
-        8: "T",
-        9: "G",
-      };
-      function opno(no, line) {
-        if (line == 26005 || line == 26006) return ("00" + no).slice(-2);
-        if (typeof no != "number") return no;
-        if (no == 999) return no;
-        if (
-          line == "" ||
-          line == 26001 ||
-          line == 26002 ||
-          line == 26009 ||
-          line == 26010
-        )
-          if (((no / 100) | 0) in opchar)
-            return ("00" + no).slice(-2) + opchar[(no / 100) | 0];
-        if (line == 26003 && no < 100)
-          return no <= 44
-            ? ("00" + no).slice(-2) + "K"
-            : no >= 50 && no <= 82 && no % 2 == 0
-            ? ("00" + no).slice(-2) + "T"
-            : no >= 51 && no <= 93 && no % 2 == 1
-            ? ("00" + no).slice(-2) + "S"
-            : ("00" + no).slice(-2);
-        return ("00" + no).slice(no < 10 ? -1 : no < 100 ? -2 : -3);
-      }
+				    		var elem = document.getElementById("sec" + s);
+				    		while (elem.lastChild)
+				    			elem.removeChild(elem.lastChild);
+				    	});
+					}
+				});
 
-      var curline;
-      function init() {
-        curline = location.search;
-        if (curline.length > 0) curline = curline.substr(1);
+				/* 更新時間を表示させます */
+				var updatetime = document.getElementById("update");
+				const date = new Date(res.last_modified * 1000);
+				document.getElementById("update").textContent = '更新時刻:' + date.toLocaleString();
 
-        var sel = document.getElementById("sel");
-        Object.keys(linedata).forEach(function (o, i, a) {
-          var btn = document.createElement("button");
-          btn.className = "line" + linedata[o].line_id;
-          btn.addEventListener("click", function () {
-            trans(o);
-          });
-          btn.innerHTML = linedata[o].line_name;
-          if (o == curline) btn.disabled = true;
-          sel.appendChild(btn);
-        });
 
-		var txbtn = document.createElement("button");
-		txbtn.className = "line26010";
-		txbtn.innerHTML = "つくばエクスプレス";
-		txbtn.addEventListener("click", function () {
-		  location.href = "/tokyutid/txtid.html";
-		});
-		sel.appendChild(txbtn);
 
-        if (!curline in linedata) return;
 
-        var main = document.getElementById("main");
-        linedata[curline].sections.forEach(function (o, i, a) {
-          var sec = document.createElement("div");
-          sec.style.height = "192px";
-          sec.style.cssFloat = "left";
-          sec.style.position = "relative";
-          var svg = createSVG("svg");
-          svg.setAttribute("height", "192px");
-          if ("station_id" in o) {
-            if ("plats" in o) {
-              o.plats.forEach(function (p, i, a) {
-                var plat = createSVG("rect");
-                plat.setAttribute("x", -31.5);
-                plat.setAttribute("y", p * 32 - 9.5);
-                plat.setAttribute("width", 63);
-                plat.setAttribute("height", 19);
-                plat.setAttribute("stroke", "white");
-                plat.setAttribute("fill", "deepskyblue");
-                plat.setAttribute("stroke-width", 1);
-                svg.appendChild(plat);
-              });
-            }
-            sec.style.width = "192px";
-            svg.setAttribute("width", "192px");
-            svg.setAttribute("viewBox", "-96 -96 192 192");
+				res.trains.forEach(function (o, i, a)
+				{
+					if (o.line_id != linedata[curline].line_id)
+						return;
 
-            var text = createSVG("text");
-            text.setAttribute("x", 0);
-            text.setAttribute("y", 6);
-            text.setAttribute("font-size", 16);
-            text.setAttribute("font-weight", "bold");
-            text.setAttribute("text-anchor", "middle");
-            text.setAttribute("fill", "white");
-            text.innerHTML = o.station_name;
-            svg.appendChild(text);
+					var tra = document.createElement("div");
+					tra.className = "train line" + ("train_line_id" in o ? o.train_line_id : linedata[curline].line_id);
+					var box = document.createElement("div");
+					box.className = "box";
+					tra.appendChild(box);
+					var dir = document.createElement("div");
+					dir.className = o.up ? "up" : "down";
+					tra.appendChild(dir);
 
-            if ("tracks" in o) {
-              var track = createSVG("path");
-              track.setAttribute("d", o.tracks);
-              track.setAttribute("stroke", "white");
-              track.setAttribute("stroke-width", 0.125);
-              track.setAttribute("fill", "none");
-              track.setAttribute("transform", "scale(16)");
-              svg.appendChild(track);
-            }
+					var info = document.createElement("div");
+					info.className = "opno";
+					if ("operation_number" in o && o.operation_number != "")
+					{
+						info.innerHTML += opno(o.operation_number, ("train_line_id" in o ? o.train_line_id : linedata[curline].line_id));
+					}
+					if (info.innerHTML != "")
+						tra.appendChild(info);
 
-            for (var i = -3; i <= 3; ++i) {
-              if (i == 0) continue;
-              var canv = document.createElement("div");
-              canv.id = "sta" + o.station_id + "p" + i;
-              canv.className = "section";
-              canv.style.top = i * 32 + (i < 0 ? 64 : 32) + 48 + "px";
-              canv.style.left = "64px";
-              sec.appendChild(canv);
-            }
-          }
-          if ("section_id" in o) {
-            sec.style.width = "64px";
-            svg.setAttribute("width", "64px");
-            svg.setAttribute("viewBox", "-32 -96 64 192");
+					var info = document.createElement("div");
+					info.className = "kind";
+					if ("kind" in o && o.kind != "")
+					{
+						info.innerHTML += o.kind;
+					}
+					if ("train_kind" in o && o.train_kind != "")
+					{
+						info.innerHTML += o.train_kind;
+					}
+					if (o.kind == null && o.train_kind == null)
+					{
+						info.innerHTML = "null";
+					}
+					info.innerHTML = info.innerHTML in train_kind_disp ? train_kind_disp[info.innerHTML] : "<span style=\"background:red;\">" + info.innerHTML + "</span>";
+					if (info.innerHTML != "")
+						tra.appendChild(info);
 
-            o.section_id.forEach(function (s, i, a) {
-              if (s == -1) return;
+					var info = document.createElement("div");
+					info.className = "dest";
 
-              var line = createSVG("line");
-              line.setAttribute("x1", -64);
-              line.setAttribute("y1", (i - a.length / 2) * -32 - 16);
-              line.setAttribute("x2", 64);
-              line.setAttribute("y2", (i - a.length / 2) * -32 - 16);
-              line.setAttribute("stroke", "white");
-              line.setAttribute("stroke-width", 2);
-              svg.appendChild(line);
 
-              var canv = document.createElement("div");
-              canv.id = "sec" + s;
-              canv.className = "section";
-              canv.style.top = (i - a.length / 2) * -32 + 32 + 48 + "px";
-              canv.style.left = "0";
-              sec.appendChild(canv);
-            });
-          }
-          sec.insertBefore(svg, sec.firstChild);
-          main.appendChild(sec);
-        });
+					if ("destination" in o){
+						info.innerHTML += o.destination;
+					}else if ("destination_station_code" in o){
+						if (linedata[curline].line_id == 26001 || linedata[curline].line_id == 26002 || linedata[curline].line_id == 26009)
+							info.innerHTML += o.destination_station_code in destination_name_tymg ? destination_name_tymg[o.destination_station_code] : "<span style=\"background-color:red;\">" + o.destination_station_code + "</span>";
+						if (linedata[curline].line_id == 26003 || linedata[curline].line_id == 26004 || linedata[curline].line_id == 26008)
+							info.innerHTML += o.destination_station_code in destination_name_dtom ? destination_name_dtom[o.destination_station_code] : "<span style=\"background-color:red;\">" + o.destination_station_code + "</span>";
+					}
 
-        update();
-        setInterval(update, 10000);
-      }
+					
 
-      var request = null;
-      function update() {
-        if (request != null) return;
+					if (info.innerHTML != "")
+						tra.appendChild(info);
 
-        request = new XMLHttpRequest();
-        request.open(
-          "GET",
-          "https://w-tid.jp/tokyu/" + linedata[curline].uri + ".json",
-          true
-        );
-        request.onreadystatechange = function () {
-          if (request.readyState != 4 || request.status != 200) return;
-          var res = JSON.parse(request.responseText);
+					if (o.delay_time > 0)
+					{
+						var delay = document.createElement("div");
+						delay.className = "delay";
+						delay.innerHTML = "+" + o.delay_time;
+						tra.appendChild(delay);
+					}
 
-		  const date = new Date(res.last_modified * 1000);
-		  document.getElementById("update").textContent =
-    		"更新時刻:" + date.toLocaleString();
+					if (o.stop_time >= 300){
+						var stop = document.createElement("div");
+						stop.className = "stop";
+						stop.innerHTML = "+" + Math.trunc((o.stop_time / 60)) + '停車';
+						tra.appendChild(stop);
+					}
 
-          linedata[curline].sections.forEach(function (o, i, a) {
-            if ("station_id" in o) {
-              for (var i = -3; i <= 3; ++i) {
-                if (i == 0) continue;
-                var elem = document.getElementById(
-                  "sta" + o.station_id + "p" + i
-                );
-                while (elem.lastChild) elem.removeChild(elem.lastChild);
-              }
-            }
-            if ("section_id" in o) {
-              o.section_id.forEach(function (s, i, a) {
-                if (s == -1) return;
 
-                var elem = document.getElementById("sec" + s);
-                while (elem.lastChild) elem.removeChild(elem.lastChild);
-              });
-            }
-          });
 
-          res.trains.forEach(function (o, i, a) {
-            if (o.line_id != linedata[curline].line_id) return;
 
-            var tra = document.createElement("div");
-            tra.className =
-              "train line" +
-              ("train_line_id" in o
-                ? o.train_line_id
-                : linedata[curline].line_id);
-            var box = document.createElement("div");
-            box.className = "box";
-            tra.appendChild(box);
-            var dir = document.createElement("div");
-            dir.className = o.up ? "up" : "down";
-            tra.appendChild(dir);
 
-            var info = document.createElement("div");
-            info.className = "opno";
-            if ("operation_number" in o && o.operation_number != "") {
-              info.innerHTML += opno(
-                o.operation_number,
-                "train_line_id" in o
-                  ? o.train_line_id
-                  : linedata[curline].line_id
-              );
-            }
-            if (info.innerHTML != "") tra.appendChild(info);
+					var info = document.createElement("div");
+					info.className = "info";
+					if ("num_of_cars" in o && o.num_of_cars != "" && o.num_of_cars != "99")
+					{
+						info.innerHTML += o.num_of_cars;
+					}
+					if ("affiliation" in o && o.affiliation != "")
+					{
+						info.innerHTML += o.affiliation == null ? "？" : o.affiliation;
+					}
+					if(o.affiliation == "")
+					{
+						info.innerHTML += "　";
+					}
+					if ("train_orchestration_number" in o && o.train_orchestration_number != "")
+					{
+						info.innerHTML += o.train_orchestration_number;
+					}
+					if (o.up == true)
+						{
+							dir = "up"
+						}
+						else
+						{
+							dir = "down"
+						}
+					if (o.train_line_id == 26003) {
+						fetch("https://train-info.tokyuapp.com/lines/26003/trains/" + o.operation_number + "/directions/" + dir)
+							.then(response => {
+								if (!response.ok) {
+									throw new Error("HTTP error " + response.status);
+								}
+								return response.json();
+							})
+							.then(data => {
+								if (Object.keys(data).length === 0) {
+									return;
+								}
+								var unit_number = data.unit_number;
+								if (unit_number.slice(0, 2) == "00") {
+									unit_number = "急" + unit_number.slice(2)
+								}
+								if (info.innerHTML == "0　00") {
+									info.innerHTML = unit_number;
+								}
+								else {info.innerHTML += " " + unit_number;}
+							})
+					}
+					if (info.innerHTML != "")
+						tra.appendChild(info);
 
-            var info = document.createElement("div");
-            info.className = "kind";
-            if ("kind" in o && o.kind != "") {
-              info.innerHTML += o.kind;
-            }
-            if ("train_kind" in o && o.train_kind != "") {
-              info.innerHTML += o.train_kind;
-            }
-            if (o.kind == null && o.train_kind == null) {
-              info.innerHTML = "null";
-            }
-            info.innerHTML =
-              info.innerHTML in train_kind_disp
-                ? train_kind_disp[info.innerHTML]
-                : '<span style="background:red;">' + info.innerHTML + "</span>";
-            if (info.innerHTML != "") tra.appendChild(info);
+					var link = document.createElement("div");
+					link.className = "link";
+					if ("operation_number" in o && o.operation_number != "")
+					{
+						if (o.line_id == 26005 || o.line_id == 26006 || o.line_id == 26010) {
+							link.innerHTML += "<span style=\"text-decoration:none;\"></span>";
 
-			var destInfo = document.createElement("div");
-			destInfo.className = "dest";
+						}else{
 
-			// JSON更新のたびに、この列車の直通表示を設定する
-			var trainLineId = ("train_line_id" in o && o.train_line_id != null)
-			  ? Number(o.train_line_id)
-			  : Number(linedata[curline].line_id);
-			var destinationCode = Number(o.destination_station_code);
-			var fallbackText = "";
+							link.innerHTML += "<a href=\"https://tokyu-tid.s3.amazonaws.com/train_schedules?lineId=" + o.line_id + "&operationNumber=" + o.operation_number + "&direction=" + dir + "\" style=\"text-decoration:none;\"></a>";
+						}
+					}
+					if (link.innerHTML != "")
+						tra.appendChild(link);
 
-			if (trainLineId == 26003 && destinationCode == 45) {
-			  fallbackText = '<span style="color:mediumpurple;">Z線直通</span>';
-			} else if (trainLineId == 26002 && destinationCode == 54) {
-			  fallbackText = '<span style="color:dodgerblue;">I線直通</span>';
-			} else if (trainLineId == 26002 && destinationCode == 67) {
-			  fallbackText = '<span style="color:lightseagreen;">N線直通</span>';
-			} else if ((trainLineId == 26002 || linedata[curline].line_id == 26002 || linedata[curline].line_id == 26009) && destinationCode == 111) {
-			  fallbackText = '<span style="color:navy;">SO線直通</span>';
-			} else if ((linedata[curline].line_id == 26002 || linedata[curline].line_id == 26009) && destinationCode == 33) {
-			  fallbackText = '<span style="color:saddlebrown;">F線直通</span>';
-			}
+					var elem;
+					if ("station_id" in o && o.station_id != null)
+					{
+						if (o.station_id == 910)
+							if (o.track_number > 0)
+								o.track_number = 3 - o.track_number;
+							else
+								o.track_number = -3 - o.track_number * 2;
+						elem = "sta" + o.station_id + "p" + o.track_number;
+					}
+					if ("section_id" in o && o.section_id != null)
+					{
+						if (o.line_id == 26007)
+							dir.className = !o.up ? "up" : "down";
+						elem = "sec" + o.section_id;
+					}
+					if (document.getElementById(elem) != null)
+						document.getElementById(elem).appendChild(tra);
+					else
+						document.getElementById("log").innerText += "Unknown: " + elem + "\t" + JSON.stringify(o) + "\n";
+				});
 
-			if (fallbackText != "") {
-			  // API取得前から直通表示を出しておく
-			  destInfo.innerHTML = fallbackText;
-			  tra.appendChild(destInfo);
+				request = null;
+			};
+			request.send(null);
+		}
 
-			  var apiUrl =
-			    "https://timetable-api.tokyuapp.com/lines/" +
-			    trainLineId +
-			    "/trains/" +
-			    encodeURIComponent(o.operation_number) +
-			    "/directions/" +
-			    (o.up ? "up" : "down") +
-			    "/kinds/" +
-			    encodeURIComponent(o.kind) +
-			    "/delays/" +
-			    (o.delay_time || 0);
+		function trans(line)
+		{
+			if (curline != line)
+				location.search = line;
+		}
 
-			  if ("section_id" in o && o.section_id != null) {
-			    apiUrl += "/sections/" + encodeURIComponent(o.section_id);
-			  } else if ("station_id" in o && o.station_id != null) {
-			    apiUrl += "/stations/" + encodeURIComponent(o.station_id);
-			  } else {
-			    apiUrl = "";
-			  }
+		document.addEventListener("DOMContentLoaded", init, false);
+	</script>
+	<style>
+		button {
+			font-size: 150%;
+			color: white;
+		}
+		button.line26001 {
+			background-color: #d90240;
+		}
+		button.line26002 {
+			background-color: #009cd3;
+		}
+		button.line26003 {
+			background-color: #01aa8f;
+		}
+		button.line26004 {
+			background-color: #f08d41;
+		}
+		button.line26005 {
+			background-color: #ed85a7;
+		}
+		button.line26006 {
+			background-color: #ad0277;
+		}
+		button.line26007 {
+			background-color: #f9c801;
+		}
+		button.line26009 {
+			background-color: #890d84;
+		}
+		button.line26010 {
+			background-color: #09357F;
+		}
+		svg {
+			z-index: 1;
+		}
+		.section {
+			position: absolute;
+			left: 0px;
+			height: 0px;
+			width: 64px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			z-index: 2;
+		}
+		.train {
+			position: relative;
+			width: 96px;
+			height: 24px;
+		}
+		.train.line26001 {
+			border-color: #d90240;
+		}
+		.train.line26002 {
+			border-color: #009cd3;
+		}
+		.train.line26003 {
+			border-color: #01aa8f;
+		}
+		.train.line26004 {
+			border-color: #f08d41;
+		}
+		.train.line26005 {
+			border-color: #ed85a7;
+		}
+		.train.line26006 {
+			border-color: #ad0277;
+		}
+		.train.line26007 {
+			border-color: #f9c801;
+		}
+		.train.line26009 {
+			border-color: #890d84;
+		}
+		.train.line26010 {
+			border-color: #09357F;
+		}
+		.train > .box {
+			position: absolute;
+			left: 2px;
+			top: -1.5px;
+			width: 56px;
+			height: 23px;
+			background-color: white;
+			border: solid;
+			border-color: inherit;
+			border-width: 2px;
+			font-size: 14px;
+			z-index: 4;
+		}
+		.train > .up {
+			position: absolute;
+			left: -2px;
+			top: 0;
+			width: 0;
+			height: 0;
+			border: solid;
+			border-width: 12px 4px 12px 0;
+			border-left-color: transparent;
+			border-right-color: inherit;
+			border-top-color: transparent;
+			border-bottom-color: transparent;
+			z-index: 4;
+		}
+		.train > .down {
+			position: absolute;
+			left: 62px;
+			top: 0;
+			width: 0;
+			height: 0;
+			border: solid;
+			border-width: 12px 0 12px 4px;
+			border-left-color: inherit;
+			border-right-color: transparent;
+			border-top-color: transparent;
+			border-bottom-color: transparent;
+			z-index: 4;
+		}
+		.train > .opno {
+			position: absolute;
+			left: 6px;
+			top: 0px;
+			width: 52px;
+			height: 16px;
+			font-size: 11px;
+			text-align: left;
+			z-index: 6;
+		}
+		.train > .kind {
+			position: absolute;
+			left: 6px;
+			top: 0px;
+			width: 52px;
+			height: 16px;
+			font-size: 11px;
+			text-align: right;
+			z-index: 6;
+		}
+		.train > .kind > span{
+			display:inline-block;
+			height: 13px;
+			padding: 0 1.5px;
+		}
+		.train > .dest {
+			position: absolute;
+			left: 3px;
+			top: 11px;
+			width: 58px;
+			height: 16px;
+			font-size: 11px;
+			text-align: center;
+			z-index: 6;
+		}
+		.train > .delay {
+			position: absolute;
+			left: 66px;
+			top: -2px;
+			width: 44px;
+			height: 12px;
+			background-color: rgba(255, 255, 255, 0.7);
+			color: red;
+			font-size: 11px;
+			font-weight: bold;
+			z-index: 3;
+		}
 
-			  if (apiUrl != "") {
-			    fetch(apiUrl)
-			      .then(response => {
-			        if (!response.ok) throw new Error("HTTP error " + response.status);
-			        return response.json();
-			      })
-			      .then(data => {
-			        if (data.destination) {
-			          destInfo.textContent = data.destination
-						.replace("[スカイツリー前]", "")
-						.replace(/^東武/, "");
-			        } else {
-			          destInfo.innerHTML = fallbackText;
-			        }
-			      })
-			      .catch(() => {
-			        destInfo.innerHTML = fallbackText;
-			      });
-			  }
-			} else {
-			  if (
-			    "destination" in o &&
-			    (! ("destination_station_code" in o) ||
-			      o.destination_station_code == 33 ||
-			      o.destination_station_code == 111)
-			  ) {
-			    destInfo.textContent =
-			      o.destination == "元町中華" ? "元町中華街" : o.destination;
-			  } else if ("destination_station_code" in o) {
-			    if ([26001, 26002, 26009].includes(linedata[curline].line_id)) {
-			      destInfo.innerHTML =
-			        o.destination_station_code in destination_name_tymg
-			          ? destination_name_tymg[o.destination_station_code]
-			          : '<span style="background-color:red;">' +
-			            o.destination_station_code +
-			            "</span>";
-			    }
+		.train > .stop {
+			position: absolute;
+			left: -48px;
+			top: -4px;
+			width: 48px;
+			height: 16px;
+			text-align: end;
+			background-color: rgba(255, 255, 255, 0.7);
+			color: red;
+			font-size: 11px;
+			font-weight: bold;
+			z-index: 3;
+		}
 
-			    if ([26003, 26004, 26008].includes(linedata[curline].line_id)) {
-			      destInfo.innerHTML =
-			        o.destination_station_code in destination_name_dtom
-			          ? destination_name_dtom[o.destination_station_code]
-			          : '<span style="background-color:red;">' +
-			            o.destination_station_code +
-			            "</span>";
-			    }
-			  }
 
-			  if (destInfo.innerHTML != "") {
-			    tra.appendChild(destInfo);
-			  }
-			}
-			  
-            if (o.delay_time > 0) {
-              var delay = document.createElement("div");
-              delay.className = "delay";
-              delay.innerHTML = "+" + o.delay_time;
-              tra.appendChild(delay);
-            }
 
-            var info = document.createElement("div");
-            info.className = "info";
-            var formation = null;
-
-            if (
-              (o.train_line_id == 26001 || o.train_line_id == 26010) &&
-              "num_of_cars" in o &&
-              "affiliation" in o &&
-              "train_orchestration_number" in o &&
-              o.num_of_cars != "" &&
-              o.affiliation != "" &&
-              o.train_orchestration_number != ""
-            ) {
-              var no = parseInt(o.train_orchestration_number, 10);
-              var aff = o.affiliation;
-
-              if (aff == "急" && no >= 1 && no <= 15)
-                formation = "41" + ("0" + no).slice(-2);
-              else if (aff == "急" && no >= 38 && no <= 42)
-                formation = 5080 + no;
-              else if (aff == "急" && no >= 51 && no <= 78)
-                formation = 5100 + no;
-              else if (aff == "急" && no >= 81) formation = "Y" + ( 430 + no );
-              else if (aff == "み") formation = "Y51" + (no - 80);
-              else if (aff == "副" && no >= 21 && no <= 26)
-                formation = 17080 + no;
-              else if (aff == "副" && no >= 41 && no <= 76)
-                formation = "101" + ("0" + (no - 40)).slice(-2);
-              else if (aff == "副" && no >= 81 && no <= 95)
-                formation = "171" + no;
-              else if (aff == "東" && no >= 2 && no <= 8)
-                formation = "91" + ("0" + no).slice(-2);
-              else if (aff == "東" && no >= 51 && no <= 52)
-                formation = "91" + no;
-              else if (aff == "東" && no >= 71 && no <= 77)
-                formation = "510" + no;
-              else if (aff == "西" && no >= 9 && no <= 17)
-                formation = "61" + no;
-              else if (aff == "西" && no >= 61 && no <= 66)
-                formation = 40040 + no;
-              else if (aff == "西" && no >= 75 && no <= 88)
-                formation = 40076 + no;
-              else if (aff == "相" && no >= 1 && no <= 7)
-                formation = "201" + ("0" + no).slice(-2);
-              if (formation != null && formation[0] == "Y") {
-                info.innerHTML += "み" + formation;
-              } else if (formation != null) {
-                info.innerHTML += aff + formation;
-              } else {
-                if (
-                  "num_of_cars" in o &&
-                  o.num_of_cars != "" &&
-                  o.num_of_cars != "99"
-                ) {
-                  info.innerHTML += o.num_of_cars;
-                }
-
-                if ("affiliation" in o && o.affiliation != "") {
-                  info.innerHTML +=
-                    o.affiliation == null ? "？" : o.affiliation;
-                }
-
-                if (o.affiliation == "") {
-                  info.innerHTML += "　";
-                }
-
-                if (
-                  "train_orchestration_number" in o &&
-                  o.train_orchestration_number != ""
-                ) {
-                  info.innerHTML += o.train_orchestration_number;
-                }
-              }
-            } else if (
-              o.train_line_id == 26002 &&
-              "num_of_cars" in o &&
-              "affiliation" in o &&
-              "train_orchestration_number" in o &&
-              o.num_of_cars != "" &&
-              o.affiliation != "" &&
-              o.train_orchestration_number != ""
-            ) {
-              var no = parseInt(o.train_orchestration_number, 10);
-              var cars = o.num_of_cars;
-              var aff = o.affiliation;
-
-              if (aff == "急" && no >= 1 && no <= 23) formation = 3100 + no;
-              else if (aff == "急" && no >= 31 && no <= 40)
-                formation = 5150 + no;
-              else if (
-                aff == "南" &&
-                ((cars == 8 && no >= 9) || (cars == 6 && no >= 13))
-              )
-                formation = 9100 + no;
-              else if (cars == 6 && aff == "南" && no >= 9 && no <= 10)
-                formation = 2100 + no;
-              else if (aff == "都" && no <= 13) formation = 6500 + no;
-              else if (aff == "都" && no >= 34 && no <= 57)
-                formation = 6280 + no;
-              else if (aff == "相" && no <= 9) formation = 21100 + no;
-              if (formation != null) {
-                info.innerHTML += aff + formation;
-              } else {
-                if (
-                  "num_of_cars" in o &&
-                  o.num_of_cars != "" &&
-                  o.num_of_cars != "99"
-                ) {
-                  info.innerHTML += o.num_of_cars;
-                }
-
-                if ("affiliation" in o && o.affiliation != "") {
-                  info.innerHTML +=
-                    o.affiliation == null ? "？" : o.affiliation;
-                }
-
-                if (o.affiliation == "") {
-                  info.innerHTML += "　";
-                }
-
-                if (
-                  "train_orchestration_number" in o &&
-                  o.train_orchestration_number != ""
-                ) {
-                  info.innerHTML += o.train_orchestration_number;
-                }
-              }
-            } else if (
-              o.train_line_id == 26004 &&
-              o.train_orchestration_number != "00" &&
-              o.num_of_cars / o.num_of_cars == 1
-            ) {
-              info.innerHTML += "急";
-              var no = parseInt(o.train_orchestration_number, 10);
-              if (o.num_of_cars == 5 && no < 50) {
-                info.innerHTML += 9000 + no;
-              } else if (o.num_of_cars == 7) {
-                info.innerHTML += 6120 + no;
-              } else {
-                info.innerHTML += 6100 + no;
-              }
-            } else {
-              // 対応表にない場合は元の表示
-              if (
-                "num_of_cars" in o &&
-                o.num_of_cars != "" &&
-                o.num_of_cars != "99"
-              ) {
-                info.innerHTML += o.num_of_cars;
-              }
-
-              if ("affiliation" in o && o.affiliation != "") {
-                info.innerHTML += o.affiliation == null ? "？" : o.affiliation;
-              }
-
-              if (o.affiliation == "") {
-                info.innerHTML += "　";
-              }
-
-              if (
-                "train_orchestration_number" in o &&
-                o.train_orchestration_number != ""
-              ) {
-                info.innerHTML += o.train_orchestration_number;
-              }
-            }
-            if (o.up == true) {
-              dir = "up";
-            } else {
-              dir = "down";
-            }
-            if (o.train_line_id == 26003) {
-              fetch(
-                "https://train-info.tokyuapp.com/lines/26003/trains/" +
-                  o.operation_number +
-                  "/directions/" +
-                  dir
-              )
-                .then((response) => {
-                  if (!response.ok) {
-                    throw new Error("HTTP error " + response.status);
-                  }
-                  return response.json();
-                })
-                .then((data) => {
-                  if (Object.keys(data).length === 0) {
-                    return;
-                  }
-                  var unit_number = data.unit_number;
-                  if (unit_number.slice(0, 2) == "00") {
-                    unit_number = "急" + unit_number.slice(2);
-                  }
-                  if (info.innerHTML == "0　00") {
-                    info.innerHTML = unit_number;
-                  } else {
-                    info.innerHTML += " " + unit_number;
-                  }
-                });
-            }
-            if (info.innerHTML != "") tra.appendChild(info);
-
-            var link = document.createElement("div");
-            link.className = "link";
-            if ("operation_number" in o && o.operation_number != "") {
-              if (
-                o.line_id == 26005 ||
-                o.line_id == 26006 ||
-                o.line_id == 26010
-              ) {
-                link.innerHTML += '<span style="text-decoration:none;"></span>';
-              } else {
-                link.innerHTML +=
-                  '<a href="https://tokyu-tid.s3.amazonaws.com/train_schedules?lineId=' +
-                  o.line_id +
-                  "&operationNumber=" +
-                  o.operation_number +
-                  "&direction=" +
-                  dir +
-                  '" style="text-decoration:none;"></a>';
-              }
-            }
-            if (link.innerHTML != "") tra.appendChild(link);
-
-            var elem;
-            if ("station_id" in o && o.station_id != null) {
-              if (o.station_id == 910)
-                if (o.track_number > 0) o.track_number = 3 - o.track_number;
-                else o.track_number = -3 - o.track_number * 2;
-			  if (o.station_id == 913 && (linedata[curline].line_id == 26001 || linedata[curline].line_id == 26002 || linedata[curline].line_id == 26009))
-				if (o.track_number > 0)
-				  o.track_number = 3 - o.track_number;
-				else
-				  o.track_number = -3 - o.track_number;
-			  if (o.station_id == 26 && (linedata[curline].line_id == 26003 || linedata[curline].line_id == 26004 || linedata[curline].line_id == 26008))
-				if (o.track_number < 0)
-				  o.track_number = -3 - o.track_number;
-              elem = "sta" + o.station_id + "p" + o.track_number;
-            }
-            if ("section_id" in o && o.section_id != null) {
-              if (o.line_id == 26007) dir.className = !o.up ? "up" : "down";
-              elem = "sec" + o.section_id;
-            }
-            if (document.getElementById(elem) != null)
-              document.getElementById(elem).appendChild(tra);
-            else
-              document.getElementById("log").innerText +=
-                "Unknown: " + elem + "\t" + JSON.stringify(o) + "\n";
-          });
-
-          request = null;
-        };
-        request.send(null);
-      }
-
-      function trans(line) {
-        if (curline != line) location.search = line;
-      }
-
-      document.addEventListener("DOMContentLoaded", init, false);
-    </script>
-    <style>
-      button {
-        font-size: 150%;
-        color: white;
-      }
-      button.line26001 {
-        background-color: #d90240;
-      }
-      button.line26002 {
-        background-color: #009cd3;
-      }
-      button.line26003 {
-        background-color: #01aa8f;
-      }
-      button.line26004 {
-        background-color: #f08d41;
-      }
-      button.line26005 {
-        background-color: #ed85a7;
-      }
-      button.line26006 {
-        background-color: #ad0277;
-      }
-      button.line26007 {
-        background-color: #f9c801;
-      }
-      button.line26009 {
-        background-color: #890d84;
-      }
-      button.line26010 {
-        background-color: #09357f;
-      }
-      svg {
-        z-index: 1;
-      }
-      .section {
-        position: absolute;
-        left: 0px;
-        height: 0px;
-        width: 64px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        z-index: 2;
-      }
-      .train {
-        position: relative;
-        width: 96px;
-        height: 24px;
-      }
-      .train.line26001 {
-        border-color: #d90240;
-      }
-      .train.line26002 {
-        border-color: #009cd3;
-      }
-      .train.line26003 {
-        border-color: #01aa8f;
-      }
-      .train.line26004 {
-        border-color: #f08d41;
-      }
-      .train.line26005 {
-        border-color: #ed85a7;
-      }
-      .train.line26006 {
-        border-color: #ad0277;
-      }
-      .train.line26007 {
-        border-color: #f9c801;
-      }
-      .train.line26009 {
-        border-color: #890d84;
-      }
-      .train.line26010 {
-        border-color: #09357f;
-      }
-      .train > .box {
-        position: absolute;
-        left: 2px;
-        top: -1.5px;
-        width: 56px;
-        height: 23px;
-        background-color: white;
-        border: solid;
-        border-color: inherit;
-        border-width: 2px;
-        font-size: 14px;
-        z-index: 4;
-      }
-      .train > .up {
-        position: absolute;
-        left: -2px;
-        top: 0;
-        width: 0;
-        height: 0;
-        border: solid;
-        border-width: 12px 4px 12px 0;
-        border-left-color: transparent;
-        border-right-color: inherit;
-        border-top-color: transparent;
-        border-bottom-color: transparent;
-        z-index: 4;
-      }
-      .train > .down {
-        position: absolute;
-        left: 62px;
-        top: 0;
-        width: 0;
-        height: 0;
-        border: solid;
-        border-width: 12px 0 12px 4px;
-        border-left-color: inherit;
-        border-right-color: transparent;
-        border-top-color: transparent;
-        border-bottom-color: transparent;
-        z-index: 4;
-      }
-      .train > .opno {
-        position: absolute;
-        left: 6px;
-        top: 0px;
-        width: 52px;
-        height: 16px;
-        font-size: 11px;
-        text-align: left;
-        z-index: 6;
-      }
-      .train > .kind {
-        position: absolute;
-        left: 6px;
-        top: 0px;
-        width: 52px;
-        height: 16px;
-        font-size: 11px;
-        text-align: right;
-        z-index: 6;
-      }
-      .train > .kind > span {
-        display: inline-block;
-        height: 13px;
-        padding: 0 1.5px;
-      }
-      .train > .dest {
-        position: absolute;
-        left: 3px;
-        top: 11px;
-        width: 58px;
-        height: 16px;
-        font-size: 11px;
-        text-align: center;
-        z-index: 6;
-      }
-      .train > .delay {
-        position: absolute;
-        left: 66px;
-        top: -2px;
-        width: 44px;
-        height: 12px;
-        background-color: rgba(255, 255, 255, 0.7);
-        color: red;
-        font-size: 11px;
-        font-weight: bold;
-        z-index: 3;
-      }
-      .train > .info {
-        position: absolute;
-        left: 66px;
-        top: 10px;
-        width: 44px;
-        height: 14px;
-        background-color: rgba(255, 255, 255, 0.7);
-        color: darkcyan;
-        font-size: 11px;
-        z-index: 3;
-      }
-      .train > .link {
-        position: absolute;
-        left: 2px;
-        top: -1.5px;
-        width: 60px;
-        height: 27px;
-        font-size: 23px;
-        text-align: center;
-        z-index: 6;
-        position: relative;
-      }
-      .link a {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-    </style>
-  </head>
-  <body style="background-color: #000313">
-    <div style="font-size: 12px"><br /></div>
-    <div id="sel" style="padding-bottom: 32px"></div>
+		.train > .info {
+			position: absolute;
+			left: 66px;
+			top: 10px;
+			width: 44px;
+			height: 14px;
+			background-color: rgba(255, 255, 255, 0.7);
+			color: darkcyan;
+			font-size: 11px;
+			z-index: 3;
+		}
+		.train > .link {
+			position: absolute;
+			left: 2px;
+			top: -1.5px;
+			width: 60px;
+			height: 27px;
+			font-size: 23px;
+			text-align: center;
+			z-index: 6;
+			position:relative;
+		}
+		.link a{
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:100%;
+		}
+	</style>
+</head>
+<body style="background-color:#000313;">
+	<div style="font-size: 12px;"><br></div>
+	<div id="sel" style="padding-bottom: 32px;"></div>
 	<div id="update" style="margin-top: -30px;color: #fff;"></div>
-    <div id="main"></div>
-    <div id="log" style="clear: left"></div>
-    <!--
+	<div id="main"></div>
+	<div id="log" style="clear: left;"></div>
+<!--
 	<div style="clear: left; font-size:20px; color:White;">
 		<a href="/東急編成番号対照表.html"><font color="lightseagreen">編成番号対照表</font></a></div>
 -->
-  </body>
-</html>
+	</body></html>
